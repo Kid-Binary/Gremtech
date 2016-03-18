@@ -1,0 +1,9 @@
+# Metadata
+
+- model: metadata.Metadata
+  pk: 1
+  fields:
+    url_name:    index
+    title:       title
+    description: description
+    robots:      index,follow,archive
