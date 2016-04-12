@@ -9,6 +9,7 @@ __pycache__/
 
 logs/
 static/
+uploads/
 
 */*/settings/production.py
 

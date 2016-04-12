@@ -1,0 +1,609 @@
+# ContentBlock
+
+-   model: website.Intro
+    pk: 1
+    fields:
+        name: Intro
+        headline_ru: Research & development
+        title_ru: Gremtech
+        bottomline_ru: Doing now what was impossible today
+
+-   model: website.WeAre
+    pk: 1
+    fields:
+        name: We Are
+        headline_ru: Research & development
+        title_ru: Gremtech
+        text_ru: |
+            Конструкторское бюро, занимающееся разработкой робототехники и созданием инновационных устройств, предоставляет полный комплекс услуг аппаратно-программной разработки техники, включая технологические исследования.
+            Наша команда - это слаженный коллектив ведущих специалистов и экспертов в области физики, микроэлектроники, программирования и робототехники.
+
+-   model: website.WhatWeDo
+    pk: 1
+    fields:
+        text_ru: |
+            Услуги могут быть оказаны как комплексно по фазам проекта, так и по отдельности.
+
+-   model: website.GetInTouch
+    pk: 1
+    fields:
+        title_ru: Всегда открыты для новых идей
+        text_ru: |
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi veritatis ut officia, repudiandae quos ullam rem sunt. Earum rem, quod saepe sit reiciendis officiis, natus pariatur exercitationem, ad minus dolore.
+
+# Number WeAre
+
+-   model: website.Number
+    pk: 1
+    fields:
+        we_are: 1
+        quantity: 11
+        description_ru: партнеров
+
+-   model: website.Number
+    pk: 2
+    fields:
+        we_are: 1
+        quantity: 3
+        description_ru: собственных проекта
+
+-   model: website.Number
+    pk: 3
+    fields:
+        we_are: 1
+        quantity: 10
+        description_ru: оказываемых услуг
+
+# Service
+
+-   model: website.Service
+    pk: 1
+    fields:
+        action_ru: Проводим
+        subject_ru: технологические исследования
+
+-   model: website.Service
+    pk: 2
+    fields:
+        action_ru: Разрабатываем
+        subject_ru: концепт продукта
+
+-   model: website.Service
+    pk: 3
+    fields:
+        action_ru: Составляем
+        subject_ru: техническое задание
+
+-   model: website.Service
+    pk: 4
+    fields:
+        action_ru: Разрабатываем
+        subject_ru: программное обеспечение
+
+-   model: website.Service
+    pk: 5
+    fields:
+        action_ru: Разрабатываем
+        subject_ru: аппаратную часть
+
+-   model: website.Service
+    pk: 6
+    fields:
+        action_ru: Создаем
+        subject_ru: промышленный дизайн
+
+-   model: website.Service
+    pk: 7
+    fields:
+        action_ru: Тестируем
+        subject_ru: программно-аппаратную часть
+
+-   model: website.Service
+    pk: 8
+    fields:
+        action_ru: Создаем
+        subject_ru: прототип
+
+-   model: website.Service
+    pk: 9
+    fields:
+        action_ru: Ставим
+        subject_ru: на производство
+
+-   model: website.Service
+    pk: 10
+    fields:
+        action_ru: Поддерживаем
+        subject_ru: готовый продукт
+
+# Employee
+
+-   model: website.Employee
+    pk: 1
+    fields:
+        position_ru: Технический директор
+        name_ru: Денис
+        surname_ru: Панкрушев
+        description_ru: |
+            Денис имеет 10-летний опыт работы инженера-программиста в крупнейших украинских компаниях, среди которых Samsung Ukraine SRK, VikOil ltd., ВАТ «Киев-Днепровский МППЖТ», NetAssist. Также является сооснователем Киевского Интернет провайдера Alfa-Inet. Незадолго до основания GremTech, совместно с нашим технологом разработали под заказ «передачу данных индуктивным методом», что легло в основу платежного инструмента PayBeam.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 2
+    fields:
+        position_ru: CEO
+        name_ru: Светлана
+        surname_ru: Малёванная
+        description_ru: |
+            Светлана имеет семилетний опыт работы в областях корпоративного, налогового, гражданского и хозяйственного права, интеллектуальной собственности и прямых инвестиций. В Украине работала юристом в компании Евроконсалтинг, возглавляла юридический отдел в компании Элма-консалтинг. В 2014 году основала консалтинговую компанию Olans Group, которая занимается сопровождением бизнеса, инвестиционных проектов и проектов в сфере интеллектуальной собственности.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 3
+    fields:
+        position_ru: Технолог
+        name_ru: Александр
+        surname_ru: Чернегов
+        description_ru: |
+            Александр имеет шестилетний опыт работы в области инженерии. В Украине занимался созданием и развитием платежного инструмента PayBeam.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 4
+    fields:
+        position_ru: Инженер-программист
+        name_ru: Виталий
+        surname_ru: Толкачев
+        description_ru: |
+            Виталий является опытным экспертом в области развития телекомуникационных систем и разработки микроконтроллерной цифровой техники. Уже несколько лет занимается низкоуровневым и системным программированим, программированием 3D графики и алгоритмов оптимизации.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 5
+    fields:
+        position_ru: HR
+        name_ru: Ольга
+        surname_ru: Лесик
+        description_ru: |
+            Ольга имеет пятилетный опыт работы в области HR. В Украине работала ведущим специалистом HR-направления в компаниии “Элма-консалтинг”, главным экономистом в институте колоидной химии и химии воды НАН Украины, Научный институт им. А.В., ведущий экономист. На данный момент Ольга развивает HR-направление в консалтинговой компании OLANSGROUP.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 6
+    fields:
+        position_ru: Project Manager
+        name_ru: Алексей
+        surname_ru: Радовиченко
+        description_ru: |
+            Алексей имеет многолетний опыт в сфере IT по следующим направлениям: телекоммуникация, fintech, интеграция, робототехника. Несколько лет управлял командой из 10 и более человек. За время управления командой было реализовано более 30 проектов. Фанат методологии эмоционального менеджмента в управлении командой.
+        photo: '-'
+
+-   model: website.Employee
+    pk: 7
+    fields:
+        position_ru: Инженер
+        name_ru: Владислав
+        surname_ru: Конвацкий
+        description_ru: |
+            Владислав разработчик хардварной электроникой имеющий в этом направлении более чем 10 лет опыта в разных компаниях и проектах. Разработки в импульсной технике, например импульсные блоки питания, контролеры бесколлекторных двигателей, высоковольтные преобразователи напряжения. Эксперт в разработке блоков питания в светодиодных технологиях.
+        photo: '-'
+
+# Number Employee
+
+# 1
+
+-   model: website.Number
+    pk: 4
+    fields:
+        employee: 1
+        quantity: 12
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 5
+    fields:
+        employee: 1
+        quantity: 4
+        description_ru: патента на изобретения
+
+-   model: website.Number
+    pk: 6
+    fields:
+        employee: 1
+        quantity: 50
+        extra: True
+        description_ru: реализованных проектов
+
+# 2
+
+-   model: website.Number
+    pk: 7
+    fields:
+        employee: 2
+        quantity: 8
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 8
+    fields:
+        employee: 2
+        quantity: 4
+        description_ru: года управления проектами
+
+-   model: website.Number
+    pk: 9
+    fields:
+        employee: 2
+        quantity: 50
+        extra: True
+        description_ru: реализованных проектов
+
+# 3
+
+-   model: website.Number
+    pk: 10
+    fields:
+        employee: 3
+        quantity: 6
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 11
+    fields:
+        employee: 3
+        quantity: 2
+        description_ru: года управления отделом
+
+-   model: website.Number
+    pk: 12
+    fields:
+        employee: 3
+        quantity: 4
+        description_ru: патента на изобретения
+
+# 4
+
+-   model: website.Number
+    pk: 13
+    fields:
+        employee: 4
+        quantity: 10
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 14
+    fields:
+        employee: 4
+        quantity: 3
+        description_ru: заявки на патент
+
+-   model: website.Number
+    pk: 15
+    fields:
+        employee: 4
+        quantity: 6
+        description_ru: языков программирования
+
+# 5
+
+-   model: website.Number
+    pk: 16
+    fields:
+        employee: 5
+        quantity: 8
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 17
+    fields:
+        employee: 5
+        quantity: 11
+        description_ru: разработанных мотивационных программ
+
+-   model: website.Number
+    pk: 18
+    fields:
+        employee: 5
+        quantity: 50
+        extra: True
+        description_ru: закрытых вакансий
+
+# 6
+
+-   model: website.Number
+    pk: 19
+    fields:
+        employee: 6
+        quantity: 7
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 20
+    fields:
+        employee: 6
+        quantity: 50
+        extra: True
+        description_ru: проведенных мероприятий
+
+-   model: website.Number
+    pk: 21
+    fields:
+        employee: 6
+        quantity: 20
+        extra: True
+        description_ru: человек в команде
+
+# 7
+
+-   model: website.Number
+    pk: 22
+    fields:
+        employee: 7
+        quantity: 11
+        description_ru: лет опыта работы
+
+-   model: website.Number
+    pk: 23
+    fields:
+        employee: 7
+        quantity: 5
+        description_ru: реализованных проектов
+
+-   model: website.Number
+    pk: 24
+    fields:
+        employee: 7
+        quantity: 99
+        extra: True
+        description_ru: разработанных электронных схем
+
+# Stage
+
+-   model: website.Stage
+    pk: 1
+    fields:
+        title_ru: идея
+
+-   model: website.Stage
+    pk: 2
+    fields:
+        title_ru: разработка концепта
+
+-   model: website.Stage
+    pk: 3
+    fields:
+        title_ru: альфа-прототип
+
+-   model: website.Stage
+    pk: 4
+    fields:
+        title_ru: прототип
+
+-   model: website.Stage
+    pk: 5
+    fields:
+        title_ru: промышленный образец
+
+-   model: website.Stage
+    pk: 6
+    fields:
+        title_ru: постановка на производство
+
+-   model: website.Stage
+    pk: 7
+    fields:
+        title_ru: сопровождение продукта
+
+# Project
+
+-   model: website.Project
+    pk: 1
+    fields:
+        visuals: '-'
+        title_ru: V-Touch
+        description_short_ru: >
+            Технология создания кибернетической перчатки, предназначенная для считывания мелкой моторики человеческой руки и воссоздания тактильных ощущений
+        description_full_ru: |
+            Технология создания кибернетической перчатки, предназначенная для считывания мелкой моторики человеческой руки и воссоздания тактильных ощущений.
+            Другими словами, Вы можете прикоснуться к виртуальному миру с теми же ощущениями, если бы Вы прикоснулись к реальным предметам. Вы сможете ощутить упрогость, фактуру, вес предмета в виртуальном мире.
+        additional_ru: >
+            В зависимости от сферы применения технология V-Touch с наименьшим набором функций может быть также представлена в виде клипсы, клипсы с пальцами.
+        stage: альфа прототип
+        completion: 80
+        stage: 3
+
+-   model: website.Project
+    pk: 2
+    fields:
+        visuals: '-'
+        title_ru: V-Reflection
+        description_short_ru: >
+            Технология создания манипулятора, выполненного в виде антопоморфной роботизированной руки, функционально схожей с рукой человека.
+        description_full_ru: |
+            Технология создания манипулятора, выполненного в виде антопоморфной роботизированной руки, функционально схожей с рукой человека.
+            Вы можете использовать протез, основанный на технологии V-Reflection с той же точностью, подвижностью и удобством, как если бы Вы работали собственными руками.
+        stage: разработка концепта
+        completion: 63
+        stage: 2
+
+-   model: website.Project
+    pk: 3
+    fields:
+        visuals: '-'
+        title_ru: Telekinez-SYS
+        description_short_ru: >
+            Технология системы телеприсутствия и телеучастия.
+        description_full_ru: |
+            Технология системы телеприсутствия и телеучастия. Технология позволяет управлять антропоморфной роботизированной рукой с помощью кибернетической перчатки.
+            Таким образом, Вы сможете производить действия роботизированной рукой с той же точностью и тактильным воссприятием, как если бы Вы работали собственными руками.
+        stage: разработка концепта
+        completion: 37
+        stage: 2
+
+# Functionality
+
+# 1
+
+-   model: website.Functionality
+    pk: 1
+    fields:
+        project: 1
+        title_ru: отслеживание положения и ориентации руки
+
+-   model: website.Functionality
+    pk: 2
+    fields:
+        project: 1
+        title_ru: распознавание жестикуляции
+
+-   model: website.Functionality
+    pk: 3
+    fields:
+        project: 1
+        title_ru: система регистрации положения пальцев
+
+-   model: website.Functionality
+    pk: 4
+    fields:
+        project: 1
+        title_ru: система возврата усилий
+
+-   model: website.Functionality
+    pk: 5
+    fields:
+        project: 1
+        title_ru: тактильно-термальный отклик
+
+# 2
+
+-   model: website.Functionality
+    pk: 6
+    fields:
+        project: 2
+        title_ru: воспроизведение жестов и усилий руки
+
+-   model: website.Functionality
+    pk: 7
+    fields:
+        project: 2
+        title_ru: регистрация механического термодинамического взаимодействия с объектами
+
+-   model: website.Functionality
+    pk: 8
+    fields:
+        project: 2
+        title_ru: фактурное воссприятие поверхности
+
+-   model: website.Functionality
+    pk: 9
+    fields:
+        project: 2
+        title_ru: интеграция на произвольные уровни ампутации предплечья или кисти
+
+# 3
+
+-   model: website.Functionality
+    pk: 10
+    fields:
+        project: 3
+        title_ru: построение двунаправленного канала связи между устройствами, основанными на технологиях V-Touch и V-Reflection
+
+-   model: website.Functionality
+    pk: 11
+    fields:
+        project: 3
+        title_ru: синхронное выполнение действий и регистрация отклика на произвольные удаленности
+
+-   model: website.Functionality
+    pk: 12
+    fields:
+        project: 3
+        title_ru: наличие вспомагательных контейнеров передачи (гарантированная синхронность)
+
+-   model: website.Functionality
+    pk: 13
+    fields:
+        project: 3
+        title_ru: интеграция до 4-х пар устройств
+
+# Scope
+
+# 1
+
+-   model: website.Scope
+    pk: 1
+    fields:
+        project: 1
+        title_ru: игровая
+
+-   model: website.Scope
+    pk: 2
+    fields:
+        project: 1
+        title_ru: взаимодействие с виртуальным миром
+
+-   model: website.Scope
+    pk: 3
+    fields:
+        project: 1
+        title_ru: управление VUI (volumetric user interface)
+
+-   model: website.Scope
+    pk: 4
+    fields:
+        project: 1
+        title_ru: взаимодействие с бытовой техникой
+
+-   model: website.Scope
+    pk: 5
+    fields:
+        project: 1
+        title_ru: обучающая индустрия
+
+-   model: website.Scope
+    pk: 6
+    fields:
+        project: 1
+        title_ru: медицинская реабилитация
+
+# 2
+
+-   model: website.Scope
+    pk: 7
+    fields:
+        project: 2
+        title_ru: протезирование
+
+-   model: website.Scope
+    pk: 8
+    fields:
+        project: 2
+        title_ru: компьютерная кинематика
+
+# 3
+
+-   model: website.Scope
+    pk: 9
+    fields:
+        project: 3
+        title_ru: разминирование
+
+-   model: website.Scope
+    pk: 10
+    fields:
+        project: 3
+        title_ru: лабораторное дело
+
+-   model: website.Scope
+    pk: 11
+    fields:
+        project: 3
+        title_ru: телехирургия
+
+# Contact
+
+-   model: website.Contact
+    pk: 1
+    fields:
+        email_first: sales.gremtech@gmail.com
+        email_second: support.gremtech@gmail.com

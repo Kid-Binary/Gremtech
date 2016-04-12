@@ -5,7 +5,6 @@ BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../')
 )
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -88,6 +87,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-RU'
 
+LANGUAGES = (
+    ('ru', 'RU'),
+    ('uk', 'UK'),
+    ('en', 'EN'),
+)
+
+TRANSMETA_DEFAULT_LANGUAGE = 'ru'
+
 TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
@@ -99,13 +106,15 @@ USE_TZ = True
 
 # Static files
 
-STATIC_URL = '/assets/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'website/locale'),
 ]
 
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Security
 

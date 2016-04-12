@@ -3,7 +3,7 @@
 - model: metadata.Metadata
   pk: 1
   fields:
-    url_name:    index
-    title:       title
-    description: description
-    robots:      index,follow,archive
+    url_name: index
+    title_ru: Главная
+    description_ru: Описание
+    robots: index,follow,archive

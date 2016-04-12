@@ -10,7 +10,6 @@ INSTALLED_APPS += [
     'debug_toolbar',
 ]
 
-
 # Email
 
 EMAIL_HOST = 'mail.ukraine.com.ua'
