@@ -1,0 +1,23 @@
+{% load i18n %}
+
+{% get_current_language as current_language %}
+{% get_available_languages as available_languages %}
+{% get_language_info_list for available_languages as language_info_list %}
+
+{% for language in language_info_list %}
+    <p>
+
+        {% language language.code %}
+
+            {% with path=request.resolver_match.app_name|add:':'|add:request.resolver_match.url_name %}
+                <a href="{% url path %}">{{ language.code }}</a>
+            {% endwith %}
+
+        {% endlanguage %}
+
+        {% if language.code == current_language %}
+        (active)
+        {% endif %}
+
+    </p>
+{% endfor %}

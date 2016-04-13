@@ -15,3 +15,6 @@ INSTALLED_APPS += [
 EMAIL_HOST = 'mail.ukraine.com.ua'
 EMAIL_HOST_USER = 'webmaster@cheers-development.in.ua'
 EMAIL_HOST_PASSWORD = '53o2yRjv4IKX'
+
+EMAIL_FROM = 'webmaster@cheers-development.in.ua'
+EMAIL_TO = 'webmaster@cheers-development.in.ua'

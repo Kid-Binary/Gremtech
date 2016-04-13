@@ -27,6 +27,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'solid_i18n.middleware.SolidLocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'gremtech.urls'
@@ -85,7 +86,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = (
     ('ru', 'RU'),
@@ -94,6 +95,8 @@ LANGUAGES = (
 )
 
 TRANSMETA_DEFAULT_LANGUAGE = 'ru'
+
+SOLID_I18N_USE_REDIRECTS = False
 
 TIME_ZONE = 'Europe/Kiev'
 

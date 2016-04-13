@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <form action="{% url 'website:feedback_send' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

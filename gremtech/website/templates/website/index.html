@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    Index
+
+    {% include 'website/components/languages_widget.html' with request=request only %}
+
+    {% include 'website/components/menu.html' only %}
+{% endblock %}
