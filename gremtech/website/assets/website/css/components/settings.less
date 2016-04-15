@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+@font-face{
+    font-family: "AgencyFB";
+    src: url("../fonts/AgencyFB.eot");
+    src: url("../fonts/AgencyFB.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/AgencyFB.woff2") format("woff2"),
+       url("../fonts/AgencyFB.woff") format("woff"),
+       url("../fonts/AgencyFB.ttf") format("truetype"),
+       url("../fonts/AgencyFB.svg#svgFontName") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables start                    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@white: #fbfbfb;
+@black: #0c0c0c;
+@gray: #777;
+@gold: #c98e2d;
+
+@images: "../images";
+@Roboto: "Roboto", sans-serif;
+@AgencyFB: "AgencyFB", sans-serif;
+
+@easing: cubic-bezier(0.83, 0.22, 1, 1.03);
+
+@notebook: ~"(max-width: 1440px)";
+@netbook: ~"(max-width: 1024px)";
+@tablet: ~"(max-width: 800px)";
+@mobileL: ~"(max-width: 640px)";
+@mobileM: ~"(max-width: 440px)";
+@mobileS: ~"(max-width: 320px)";
+
+@landscape: ~"(orientation: landscape) and @{netbook}";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  system variables end                      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  Fonts start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+h1, h2, h3, h4, h5, h6, p, a, time, span, small{
+    font-family: @Roboto;
+    font-weight: normal;
+    font-style: normal;
+    color: @black;
+}
+h1{
+    font-family: @AgencyFB;
+    font-size: 7.75em;
+    text-transform: uppercase;
+}
+h2{ font-size: 1.5em; }
+h3{ font-size: 1.25em; }
+h4{ font-size: 1.125em; }
+p, a{ font-size: 1em; }
+a{ text-decoration: none; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  Fonts end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  mixins start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  mixins end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.clearfix{
+    &:after{
+        display: block;
+        height: 0;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        visibility: hidden;
+    }
+}
+figure,
+figure > img,
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  helpers end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+

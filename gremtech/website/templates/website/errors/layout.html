@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% load staticfiles i18n %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/notfound.bundle.min.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <main id="content">
+            <section class="outer not-found-holder">
+                <div class="inner">
+                    <span class="upperline"></span>
+                    <p>
+                        {% block error_description %}{% endblock %}
+                    </p>
+                    <div class="btn">
+                        <a href="{% url 'website:index' %}">{% trans 'на главную' %}</a>
+                        <svg viewBox="0 0 200 50">
+                            <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "></polygon>
+                        </svg>
+                    </div>
+                </div>
+                <span class="error-number">
+                    {% block error_code %}{% endblock %}
+                </span>
+            </section>
+        </main>
+    </div>
+
+    {% include 'website/components/orientation_widget.html' only %}
+
+{% endblock %}
+
+{% block analytics %}{% endblock %}

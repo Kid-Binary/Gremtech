@@ -53,7 +53,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gremtech.wsgi.application'
 
-
 # Database
 
 DATABASES = {
@@ -62,7 +61,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 
@@ -82,7 +80,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': PASSWORD_VALIDATION + '.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 
@@ -106,7 +103,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files
 
 STATIC_URL = '/static/'
@@ -124,3 +120,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
+
+# Socials
+
+SOCIALS = {
+    'facebook': 'https://www.facebook.com/GremTech',
+    'vkontakte': 'https://vk.com/gremtech',
+}

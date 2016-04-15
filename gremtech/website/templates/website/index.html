@@ -1,9 +1,286 @@
 {% extends 'layout.html' %}
 
+{% load staticfiles i18n %}
+
+{% block title %}
+    {% trans 'GremTech R&D Center' noop %} | {{ METADATA.title }}
+{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="Description" content="{{ METADATA.description }}">
+    <meta name=“robots” content="{{ METADATA.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/home.bundle.min.css' %}">
+{% endblock %}
+
 {% block body %}
-    Index
+    <div id="page">
 
-    {% include 'website/components/languages_widget.html' with request=request only %}
+        {% include 'website/components/header.html' only %}
 
-    {% include 'website/components/menu.html' only %}
+        {% include 'website/components/languages_widget.html' with request=request only %}
+
+		<main id="content">
+			<section class="outer hero-holder">
+				<div class="inner">
+
+                    {% with content_blocks.intro as intro %}
+
+    					<span class="upper-title">{{ intro.headline }}</span>
+    					<h1>{{ intro.title }}</h1>
+    					<p>{{ intro.bottomline }}</p>
+
+                    {% endwith %}
+
+                    {% include 'website/components/projects_menu.html' with request=request projects=projects only %}
+
+				</div>
+				<div class="corner corner-br corner-small">
+					<span class="lane"></span>
+					<span class="lane"></span>
+				</div>
+
+                {% include 'website/components/socials_menu.html' only %}
+
+				<div class="arrow-holder">
+					<span class="arrow-down"></span>
+				</div>
+			</section>
+			<section class="outer about-holder">
+				<div class="bg-title-holder scrollify" data-speed="50">
+					<span>{% trans 'We Are' noop %}</span>
+				</div>
+				<div class="inner">
+
+                    {% with content_blocks.we_are as we_are %}
+    					<div class="info-holder scroll-appearance">
+    						<div class="info">
+    							<div class="corner corner-tl">
+    								<span class="lane"></span>
+    								<span class="lane"></span>
+    							</div>
+    							<div class="corner corner-br">
+    								<span class="lane"></span>
+    								<span class="lane"></span>
+    							</div>
+    							<div class="label">
+    								<span>{{ we_are.headline }}</span>
+    							    <svg viewBox="0 0 300 45">
+    							        <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+    							    </svg>
+    							</div>
+    							<h2>{{ we_are.title }}</h2>
+                                {{ we_are.text|linebreaks }}
+    						</div>
+    						<div class="numbers-holder">
+    							<div class="item scrollify" data-speed="5.75">
+    								<span class="lane"></span>
+    								<span class="number">{{ we_are.get_numbers.0.get_formatted_quantity|safe }}</span>
+    								<p>{{ we_are.get_numbers.0.description }}</p>
+    							</div>
+    							<div class="item scrollify" data-speed="6.5">
+    								<span class="lane"></span>
+                                    <span class="number">{{ we_are.get_numbers.1.get_formatted_quantity|safe }}</span>
+    								<p>{{ we_are.get_numbers.1.description }}</p>
+    							</div>
+    							<div class="item scrollify" data-speed="8.25">
+    								<span class="lane"></span>
+                                    <span class="number">{{ we_are.get_numbers.2.get_formatted_quantity|safe }}</span>
+    								<p>{{ we_are.get_numbers.2.description }}</p>
+    							</div>
+    						</div>
+    					</div>
+                    {% endwith %}
+
+				</div>
+			</section>
+			<section class="outer services-holder">
+				<div class="bg-title-holder scrollify" data-speed="50">
+					<span>{% trans 'What We Do' noop %}</span>
+				</div>
+				<div class="inner">
+					<div class="desc-holder">
+						<span class="upperline"></span>
+
+                        {% with content_blocks.what_we_do as what_we_do %}
+                            <p>{{ what_we_do.text }}</p>
+                        {% endwith %}
+
+					</div>
+					<ul class="list-holder">
+
+                        {% for service in services %}
+                            <li class="scroll-appearance">
+                                <div class="label label-squared num-holder">
+                                    <span>{{ forloop.counter }}</span>
+                                    <svg viewBox="0 0 60 60">
+                                        <polygon points="0,60 0,10 10,0 60,0 60,50 50,60" />
+                                    </svg>
+                                </div>
+                                <p>{{ service.action }} <span>{{ service.subject }}</span></p>
+                            </li>
+                        {% endfor %}
+
+
+					</ul>
+					<div class="btn">
+						<a href="{% url 'website:feedback' %}">{% trans 'заказать услугу' %}</a>
+						<svg viewBox="0 0 200 50">
+					        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+					    </svg>
+					</div>
+				</div>
+			</section>
+			<section class="outer projects-holder">
+				<div class="bg-title-holder scrollify" data-speed="50">
+					<span>{% trans 'Projects' noop %}</span>
+				</div>
+				<div class="inner">
+
+                    {% for project in projects %}
+                        <div class="item-holder {% cycle '' 'reverse' %} scroll-appearance">
+                            <div class="info-holder">
+                                <div class="corner corner-tl">
+                                    <span class="lane"></span>
+                                    <span class="lane"></span>
+                                </div>
+                                <div class="label label-squared">
+                                    <span class="icon {{ project.icon }}"></span>
+                                    <svg viewBox="0 0 60 60">
+                                        <polygon points="0,60 0,10 10,0 60,0 60,50 50,60 "/>
+                                    </svg>
+                                </div>
+                                <div class="label">
+                                    <span>{{ project.stage.title }}</span>
+                                    <svg viewBox="0 0 300 45">
+                                        <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+                                    </svg>
+                                </div>
+                                <h2>{{ project.title }}</h2>
+                                <p>{{ project.description_short }}</p>
+                                <div class="action-holder">
+                                    <div class="progress-holder" data-percents="{{ project.completion }}">
+                                        <p>{% trans 'Готовность' %} <span>{{ project.completion }}%</span></p>
+                                        <div class="progress">
+                                            <span class="progress-bar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="btn">
+                                        <a href="{% url 'website:project' id=project.id %}">{% trans 'Подробнее' %}</a>
+                                        <svg viewBox="0 0 200 50">
+                                            <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="graphic-holder">
+                                <figure class="scrollify" data-speed="9.25">
+                                    <img src="{% static 'website/images/'|add:project.image %}" alt="{{ project.title }}">
+                                </figure>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+				</div>
+			</section>
+			<section class="outer team-holder">
+				<div class="bg-title-holder scrollify" data-speed="50">
+					<span>{% trans 'Our team' noop %}</span>
+				</div>
+				<div class="inner">
+
+                    {% for employee in employees %}
+                        <article class="item-holder {% cycle '' 'reverse' %} scroll-appearance">
+                            <div class="photo-holder">
+                                <div class="photo">
+                                    <span class="lane"></span>
+                                    <span class="lane"></span>
+                                    <span class="lane"></span>
+                                    <span class="lane"></span>
+                                    <figure>
+                                        <img src="{{ employee.photo.url }}" alt="{{ employee.full_name }}">
+                                    </figure>
+                                </div>
+                                <div class="label">
+                                    <span>{{ employee.position }}</span>
+                                    <svg viewBox="0 0 300 45">
+                                        <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="info-holder">
+                                <div class="corner corner-small corner-tl">
+                                    <span class="lane"></span>
+                                    <span class="lane"></span>
+                                </div>
+                                <h2>{{ employee.full_name }}</h2>
+                                <p>{{ employee.description|linebreaks }}</p>
+                                <div class="numbers-holder">
+
+                                    {% for number in employee.get_numbers %}
+                                        <div class="item scrollify" data-speed="20">
+                                            <span class="lane"></span>
+                                            <span class="number">{{ number.get_formatted_quantity|safe }}</span>
+                                            <p>{{ number.description }}</p>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+
+				</div>
+			</section>
+			<section class="outer contact-holder">
+				<div class="bg-title-holder scrollify" data-speed="50">
+					<span>{% trans 'Get in touch' noop %}</span>
+				</div>
+				<div class="inner">
+					<span class="upperline"></span>
+
+                    {% with content_blocks.get_in_touch as get_in_touch %}
+    					<h2>{{ get_in_touch.title }}</h2>
+    					<p>{{ get_in_touch.text }}</p>
+                    {% endwith %}
+
+                    <div class="buttons-holder">
+						<div class="btn">
+							<a href="{% url 'website:feedback' %}">{% trans 'Написать нам' %}</a>
+							<svg viewBox="0 0 200 50">
+						        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+						    </svg>
+						</div>
+						<div class="btn">
+							<a href="{% url 'website:investment' %}">{% trans 'Инвестировать' %}</a>
+							<svg viewBox="0 0 200 50">
+						        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+						    </svg>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer">
+				<span class="upperline"></span>
+				<a href="mailto:{{ contact.email_first }}">{{ contact.email_first }}</a>
+				<a href="mailto:{{ contact.email_second }}">{{ contact.email_second }}</a>
+
+                {% include 'website/components/footer.html' only %}
+
+			</div>
+		</main>
+
+        {% include 'website/components/preloader.html' only %}
+
+	</div>
+
+    {% include 'website/components/orientation_widget.html' only %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{% static 'website/js/home.bundle.min.js' %}"></script>
 {% endblock %}

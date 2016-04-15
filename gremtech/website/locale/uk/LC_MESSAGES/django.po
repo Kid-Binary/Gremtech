@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-15 16:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: website/forms.py:12 website/forms.py:43 website/forms.py:60
+#: website/forms.py:77 website/forms.py:89 website/forms.py:101
+#: website/forms.py:131 website/forms.py:148 website/forms.py:165
+#: website/forms.py:177 website/forms.py:191
+msgid "-"
+msgstr ""
+
+#: website/forms.py:30
+msgid "Проект"
+msgstr "Проект"
+
+#: website/forms.py:33 website/forms.py:36
+msgid "Пожалуйста, выберите проект"
+msgstr "Будь ласка, оберіть проект"
+
+#: website/forms.py:37
+msgid "У нас нет такого проекта"
+msgstr "У нас немає такого проекту"
+
+#: website/forms.py:41 website/forms.py:129
+msgid "Имя"
+msgstr "Ім’я"
+
+#: website/forms.py:45 website/forms.py:52 website/forms.py:133
+#: website/forms.py:140
+msgid "Пожалуйста, введите имя"
+msgstr "Будь ласка, введіть ім’я"
+
+#: website/forms.py:47 website/forms.py:53 website/forms.py:135
+#: website/forms.py:141
+msgid "Имя слишком короткое"
+msgstr "Ім’я занадто коротке"
+
+#: website/forms.py:49 website/forms.py:54 website/forms.py:137
+#: website/forms.py:142
+msgid "Имя слишком длинное"
+msgstr "Ім’я занадто довге"
+
+#: website/forms.py:58 website/forms.py:146
+msgid "E-mail"
+msgstr "E-mail"
+
+#: website/forms.py:62 website/forms.py:69 website/forms.py:150
+#: website/forms.py:157
+msgid "Пожалуйста, укажите e-mail"
+msgstr "Будь ласка, вкажіть e-mail"
+
+#: website/forms.py:64 website/forms.py:70 website/forms.py:152
+#: website/forms.py:158
+msgid "Это не похоже на валидный e-mail"
+msgstr "Це не схоже на валідний e-mail"
+
+#: website/forms.py:66 website/forms.py:71 website/forms.py:154
+#: website/forms.py:159
+msgid "Этот e-mail слишком длинный"
+msgstr "Цей e-mail занадто довгий"
+
+#: website/forms.py:75 website/forms.py:163
+msgid "Телефон"
+msgstr "Телефон"
+
+#: website/forms.py:79 website/forms.py:83 website/forms.py:167
+#: website/forms.py:171
+msgid "Этот телефон слишком длинный"
+msgstr "Цей телефон занадто довгий"
+
+#: website/forms.py:87
+msgid "Комментарий"
+msgstr "Коментар"
+
+#: website/forms.py:91 website/forms.py:96
+msgid "Этот комментарий слишком короткий"
+msgstr "Цей коментар занадто короткий"
+
+#: website/forms.py:93 website/forms.py:97
+msgid "Этот комментарий слишком длинный"
+msgstr "Цей коментар занадто довгий"
+
+#: website/forms.py:175
+msgid "Сообщение"
+msgstr "Повідомлення"
+
+#: website/forms.py:179
+msgid "Пожалуйста, оставьте сообщение"
+msgstr "Будь ласка, залиште повідомлення"
+
+#: website/forms.py:181 website/forms.py:186
+msgid "Это сообщение слишком короткое"
+msgstr "Це повідомлення занадто коротке"
+
+#: website/forms.py:183 website/forms.py:187
+msgid "Это сообщение слишком длинное"
+msgstr "Це повідомлення занадто довге"
+
+#: website/templates/website/components/footer.html:8
+#, python-format
+msgid ""
+"\n"
+"                © <a href=\"http://gremtech.com.ua\">GremTech</a> R&D "
+"Center, %%s.\n"
+"                Создано c ♥ в <a href=\"http://cheersunlimited.com.ua"
+"\">Cheers</a> Web Production.\n"
+"            "
+msgstr ""
+"\n"
+"                © <a href=\"http://gremtech.com.ua\">GremTech</a> R&D "
+"Center, %%s.\n"
+"                Створено з ♥ у <a href=\"http://cheersunlimited.com.ua"
+"\">Cheers</a> Web Production.\n"
+"            "
+
+#: website/templates/website/components/header.html:6
+#: website/templates/website/index.html:6
+#: website/templates/website/project.html:6
+msgid "GremTech R&D Center"
+msgstr ""
+
+#: website/templates/website/components/orientation_widget.html:7
+msgid "Ожидание переворота экрана"
+msgstr "Очікування перевороту екрану"
+
+#: website/templates/website/components/projects_menu.html:5
+msgid "Проекты"
+msgstr "Проекти"
+
+#: website/templates/website/errors/layout.html:19
+#: website/templates/website/project.html:36
+msgid "на главную"
+msgstr "до головної"
+
+#: website/templates/website/index.html:54
+msgid "We Are"
+msgstr ""
+
+#: website/templates/website/index.html:102
+msgid "What We Do"
+msgstr ""
+
+#: website/templates/website/index.html:130
+msgid "заказать услугу"
+msgstr "замовити послугу"
+
+#: website/templates/website/index.html:139
+msgid "Projects"
+msgstr ""
+
+#: website/templates/website/index.html:166
+#: website/templates/website/project.html:87
+msgid "Готовность"
+msgstr "Готовність"
+
+#: website/templates/website/index.html:172
+msgid "Подробнее"
+msgstr "Детальніше"
+
+#: website/templates/website/index.html:191
+msgid "Our team"
+msgstr ""
+
+#: website/templates/website/index.html:240
+msgid "Get in touch"
+msgstr ""
+
+#: website/templates/website/index.html:252
+#: website/templates/website/project.html:171
+msgid "Написать нам"
+msgstr "Написати нам"
+
+#: website/templates/website/index.html:258
+#: website/templates/website/project.html:177
+msgid "Инвестировать"
+msgstr "Інвестувати"
+
+#: website/templates/website/project.html:70
+msgid "What Is"
+msgstr ""
+
+#: website/templates/website/project.html:97
+msgid "Functionality"
+msgstr ""
+
+#: website/templates/website/project.html:129
+msgid "Market scope"
+msgstr ""
+
+#: website/templates/website/project.html:159
+msgid "Work With Us"
+msgstr ""

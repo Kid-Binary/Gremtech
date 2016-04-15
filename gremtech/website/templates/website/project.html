@@ -1,9 +1,205 @@
 {% extends 'layout.html' %}
 
+{% load staticfiles i18n %}
+
+{% block title %}
+    {{ project.title }} - {{ METADATA.title }} | {% trans 'GremTech R&D Center' noop %}
+{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="Description" content="{{ project.description_short }}">
+    <meta name=“robots” content="{{ METADATA.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/projects.bundle.min.css' %}">
+{% endblock %}
+
 {% block body %}
-    Project
+    <div id="page" class="{{ project.visual_class }}">
 
-    {% include 'website/components/languages_widget.html' with request=request only %}
+        {% include 'website/components/header.html' only %}
 
-    {% include 'website/components/menu.html' only %}
+        {% include 'website/components/languages_widget.html' with request=request only %}
+
+        <main id="content">
+            <section class="outer hero-holder">
+                <div class="inner">
+                    <span class="upperline"></span>
+                    <h1>{{ project.title }}</h1>
+                    <p>{{ project.intro_phrase }}</p>
+
+                    {% include 'website/components/projects_menu.html' with request=request projects=projects project_id=project.id only %}
+
+                    <div class="back-holder">
+                        <a href="{% url 'website:index' %}">{% trans 'на главную' %}</a>
+                    </div>
+                </div>
+
+                {% if project.visual_class == 'v-touch' %}
+                    <div class="lowpoly-holder">
+                        <img src="{% static 'website/images/hand-bg.png' %}" alt="{{ project.title }}">
+                    </div>
+                {% elif project.visual_class == 'v-reflection' %}
+                    <div class="lowpoly-holder left">
+                        <img src="{% static 'website/images/arm-left-bg.png' %}" alt="{{ project.title }}">
+                    </div>
+                    <div class="lowpoly-holder right">
+                        <img src="{% static 'website/images/arm-right-bg.png' %}" alt="{{ project.title }}">
+                    </div>
+                {% elif project.visual_class == 'telekinez-sys' %}
+                    <div class="lowpoly-holder">
+                        <img src="{% static 'website/images/head-bg.png' %}" alt="{{ project.title }}">
+                    </div>
+                {% endif %}
+
+                <div class="corner corner-br corner-small">
+                    <span class="lane"></span>
+                    <span class="lane"></span>
+                </div>
+
+                {% include 'website/components/socials_menu.html' only %}
+
+                <div class="arrow-holder">
+                    <span class="arrow-down"></span>
+                </div>
+            </section>
+            <section class="outer about-holder scroll-appearance">
+                <div class="bg-title-holder scrollify" data-speed="50">
+                    <span>{% trans 'What Is' noop %}</span>
+                </div>
+                <div class="inner">
+                    <div class="info-holder">
+                        <div class="corner corner-tl">
+                            <span class="lane"></span>
+                            <span class="lane"></span>
+                        </div>
+                        <div class="label">
+                            <span>{{ project.stage.title }}</span>
+                            <svg viewBox="0 0 300 45">
+                                <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+                            </svg>
+                        </div>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.description_full }}</p>
+                        <div class="progress-holder" data-percents="{{ project.completion }}">
+                            <p>{% trans 'Готовность' %} <span>{{ project.completion }}%</span></p>
+                            <div class="progress">
+                                <span class="progress-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="outer functionality-holder">
+                <div class="bg-title-holder scrollify" data-speed="50">
+                    <span>{% trans 'Functionality' noop %}</span>
+                </div>
+                <div class="inner">
+
+                    {% if project.description_functionality %}
+                        <div class="desc-holder">
+                            <span class="upperline"></span>
+                            <p>{{ project.description_functionality }}</p>
+                        </div>
+                    {% endif %}
+
+                    <div class="items-holder">
+
+                        {% for functionality in project.get_functionalities %}
+                            <div class="item scroll-appearance">
+                                <div class="info">
+                                    <div class="label label-squared num-holder">
+                                        <span>{{ forloop.counter }}</span>
+                                        <svg viewBox="0 0 60 60">
+                                            <polygon points="0,60 0,10 10,0 60,0 60,50 50,60 "></polygon>
+                                        </svg>
+                                    </div>
+                                    <p>{{ functionality.title }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+            <section class="outer market-scope-holder">
+                <div class="bg-title-holder scrollify" data-speed="50">
+                    <span>{% trans 'Market scope' noop %}</span>
+                </div>
+                <div class="inner">
+
+                    {% if project.description_scope %}
+                        <div class="desc-holder">
+                            <span class="upperline"></span>
+                            <p>{{ project.description_scope }}</p>
+                        </div>
+                    {% endif %}
+
+                    <ul class="list-holder">
+
+                        {% for scope in project.get_scopes %}
+                            <li class="scroll-appearance">
+                                <div class="label label-squared num-holder">
+                                    <span>{{ forloop.counter }}</span>
+                                    <svg viewBox="0 0 60 60">
+                                        <polygon points="0,60 0,10 10,0 60,0 60,50 50,60 "></polygon>
+                                    </svg>
+                                </div>
+                                <p>{{ scope.title }}</p>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </section>
+            <section class="outer contact-holder">
+                <div class="bg-title-holder scrollify" data-speed="50">
+                    <span>{% trans 'Work With Us' %}</span>
+                </div>
+                <div class="inner">
+                    <span class="upperline"></span>
+
+                    {% with content_blocks.work_with_us as work_with_us %}
+                        <h2>{{ work_with_us.title }}</h2>
+                        <p>{{ work_with_us.text }}</p>
+                    {% endwith %}
+
+                    <div class="buttons-holder">
+						<div class="btn">
+							<a href="{% url 'website:feedback' %}">{% trans 'Написать нам' %}</a>
+							<svg viewBox="0 0 200 50">
+						        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+						    </svg>
+						</div>
+						<div class="btn">
+							<a href="{% url 'website:investment' %}">{% trans 'Инвестировать' %}</a>
+							<svg viewBox="0 0 200 50">
+						        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
+						    </svg>
+						</div>
+					</div>
+                </div>
+            </section>
+            <div id="footer">
+                <span class="upperline"></span>
+                <a href="mailto:{{ contact.email_first }}">{{ contact.email_first }}</a>
+				<a href="mailto:{{ contact.email_second }}">{{ contact.email_second }}</a>
+
+                {% include 'website/components/footer.html' only %}
+
+            </div>
+        </main>
+
+        {% include 'website/components/preloader.html' only %}
+
+    </div>
+
+    {% include 'website/components/orientation_widget.html' only %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{% static 'website/js/projects.bundle.min.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,16 @@
+{% load i18n website_helpers %}
+
+<footer>
+    <small>
+
+        {% filter interpolate_with_timeline:'2016' %}
+
+            {% blocktrans %}
+                © <a href="http://gremtech.com.ua">GremTech</a> R&D Center, %s.
+                Создано c ♥ в <a href="http://cheersunlimited.com.ua">Cheers</a> Web Production.
+            {% endblocktrans %}
+
+        {% endfilter %}
+
+    </small>
+</footer>

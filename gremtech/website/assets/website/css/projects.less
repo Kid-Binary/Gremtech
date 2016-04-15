@@ -1,0 +1,779 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  intro start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.hero-holder{
+    height: 100%;
+    background: url("@{images}/hero-bg.jpg") no-repeat 50% 50% fixed;
+    background-size: cover;
+    .inner{
+        position: absolute;
+        top: 55%;
+        left: 0;
+        transform: translateY(-50%);
+        padding: 0;
+        z-index: 20;
+        .upperline{
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: @white;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        h1{
+            color: @white;
+            text-align: center;
+            line-height: 130px;
+        }
+        p{
+            color: @white;
+            text-align: center;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+        .back-holder{
+            width: 220px;
+            margin: 20px auto 0;
+            a{
+                display: block;
+                color: @white;
+                font-size: .875em;
+                line-height: 35px;
+                text-transform: uppercase;
+                font-weight: 300;
+                text-align: center;
+                transition: all .25s @easing 0s;
+                &:hover{
+                    color: @gold;
+                }
+            }
+        }
+    }
+    .lowpoly-holder{
+        width: 380px;
+        height: auto;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        overflow: hidden;
+    }
+    .corner{
+        position: absolute;
+        right: 80px;
+        bottom: 80px;
+        .lane:before{
+            background: @white;
+        }
+    }
+    .arrow-holder{
+        width: 18px;
+        height: 12px;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        z-index: 20;
+        margin-left: -9px;
+        overflow: hidden;
+        .arrow-down{
+            display: block;
+            border-right: 9px solid transparent;
+            border-left: 9px solid transparent;
+            border-top: 12px solid @white;
+        }
+    }
+}
+
+.v-reflection .hero-holder{
+    .lowpoly-holder{
+        width: 22%;
+        left: 0%;
+        transform: translateX(0%) translateY(-50%);
+        &.right{
+            top: 60%;
+            left: auto;
+            right: 0;
+        }
+    }
+}
+.telekinez-sys .hero-holder{
+    .lowpoly-holder{
+        top: 36%;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  intro end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.about-holder{
+    .inner{
+        .info-holder{
+            width: 100%;
+            height: auto;
+            position: relative;
+            .corner{
+                position: absolute;
+                top: 0;
+                left: 0;
+                .lane{
+                    &:before{
+                        transform: translateX(-100%);
+                        transition: all .5s @easing 0s;
+                    }
+                }
+            }
+            .label{
+                position: absolute;
+                top: 40px;
+                left: -80px;
+                span{
+                    color: @gold;
+                    opacity: 0;
+                    transition: all .5s @easing .5s;
+                }
+                svg > polygon{
+                    fill: transparent;
+                    stroke-width: 1px;
+                    stroke: @black;
+                    stroke-dasharray: 720px;
+                    stroke-dashoffset: 720px;
+                    transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                }
+            }
+            h2, p{
+                opacity: 0;
+                transition: all .5s @easing .5s;
+            }
+            h2{
+                font-size: 2.25em;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 120px 80px 0;
+            }
+            p{ padding: 40px 80px; }
+            .progress-holder{
+                width: 240px;
+                height: 50px;
+                float: right;
+                overflow: hidden;
+                & > p{
+                    font-size: 1em;
+                    text-transform: uppercase;
+                    color: @black;
+                    font-weight: 300;
+                    line-height: 30px;
+                    padding: 0;
+                    text-align: left;
+                    opacity: 0;
+                    transition: all .5s @easing 0s;
+                    span{
+                        display: inline-block;
+                        float: right;
+                        color: @gold;
+                        font-weight: 400;
+                    }
+                }
+                .progress{
+                    width: 100%;
+                    height: 20px;
+                    background: @black;
+                    border: 2px solid @black;
+                    position: relative;
+                    box-sizing: border-box;
+                    opacity: 0;
+                    transition: all .5s @easing .5s;
+                    overflow: hidden;
+                    & > .progress-bar{
+                        display: block;
+                        width: 80%;
+                        height: 16px;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        content: "";
+                        background: @gold;
+                        transform: translateX(-100%);
+                        transition: all .5s @easing 1s;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+    &.active{
+        .inner .info-holder{
+            .corner{
+                .lane:before{ transform: translateX(0%); }
+            }
+            .label{
+                span{ opacity: 1; }
+                svg > polygon{
+                    fill: @black;
+                    stroke-dashoffset: 0;
+                }
+            }
+            h2, p{ opacity: 1; }
+            .progress-holder{
+                p, .progress{ opacity: 1; }
+                .progress-bar{ transform: translateX(0%); }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  functionality start                       */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.functionality-holder{
+    .bg-title-holder{
+        span{ text-align: right; }
+    }
+    .inner{
+        .desc-holder{
+            width: 50%;
+            .upperline{
+                display: block;
+                width: 40px;
+                height: 2px;
+                background: @black;
+                margin: 0 0 20px;
+                overflow: hidden;
+            }
+        }
+        .items-holder{
+            width: 100%;
+            height: auto;
+            margin: 80px auto 0;
+            overflow: hidden;
+            .item{
+                width: 23.5%;
+                height: 0;
+                padding-top: 23.5%;
+                float: left;
+                margin-right: 2%;
+                position: relative;
+                overflow: hidden;
+                &:last-child{ margin-right: 0; }
+                &:before{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    background: transparent;
+                    transition: all .5s @easing .5s;
+                    overflow: hidden;
+                }
+                .info{
+                    width: 100%;
+                    height: auto;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    overflow: hidden;
+                    .num-holder{
+                        margin: 0 auto;
+                        span{
+                            opacity: 0;
+                            color: @white;
+                            transition: all .5s @easing .5s;
+                        }
+                        svg > polygon{
+                            fill: transparent;
+                            stroke-width: 1px;
+                            stroke: @black;
+                            stroke-dasharray: 240px;
+                            stroke-dashoffset: 240px;
+                            transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                        }
+                    }
+                    p{
+                        min-height: 60px;
+                        color: @white;
+                        text-align: center;
+                        padding: 20px 20px 0;
+                        opacity: 0;
+                        font-weight: 300;
+                        transition: all .5s @easing 0s;
+                    }
+                }
+                &.active{
+                    &:before{ background: @black; }
+                    .num-holder{
+                        span{ opacity: 1; }
+                        svg > polygon{
+                            fill: fade(@gold, 40%);
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                    p{ opacity: 1; }
+                }
+            }
+        }
+    }
+}
+
+.v-touch .functionality-holder{
+    .inner{
+        .items-holder{
+            .item{
+                width: 19.2%;
+                height: 0;
+                padding-top: 19.2%;
+                float: left;
+                margin-right: 1%;
+                position: relative;
+                overflow: hidden;
+                &:last-child{ margin-right: 0; }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  functionality end                         */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  market scope start                        */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.market-scope-holder{
+    .inner{
+        .desc-holder{
+            width: 50%;
+            margin-left: 50%;
+            .upperline{
+                display: block;
+                width: 40px;
+                height: 2px;
+                background: @black;
+                margin-bottom: 20px;
+                overflow: hidden;
+            }
+            p{
+                text-align: left;
+            }
+        }
+        .list-holder{
+            display: block;
+            width: 100%;
+            margin: 80px 0 0;
+            li{
+                display: block;
+                width: 100%;
+                height: 80px;
+                position: relative;
+                &:after{
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    content: "";
+                    background: @black;
+                    transition: all 1s @easing;
+                    overflow: hidden;
+                }
+                .num-holder{
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                    span{
+                        font-size: .875em;
+                        line-height: 30px;
+                        opacity: 0;
+                        transition: all .5s @easing .5s;
+                    }
+                    svg > polygon{
+                        fill: transparent;
+                        stroke-width: 1px;
+                        stroke: @black;
+                        stroke-dasharray: 240px;
+                        stroke-dashoffset: 240px;
+                        transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                    }
+                }
+                p{
+                    display: inline-block;
+                    font-size: 1.125em;
+                    text-align: left;
+                    margin: 0 80px;
+                    line-height: 80px;
+                    text-transform: uppercase;
+                    position: relative;
+                    &:before{
+                        display: block;
+                        width: 0%;
+                        height: 2px;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        z-index: 10;
+                        content: "";
+                        background: @gold;
+                        transition: all .5s @easing .4s;
+                        overflow: hidden;
+                    }
+                }
+                &.active{
+                    &:before,
+                    &:after{
+                        width: 100%;
+                    }
+                    .num-holder{
+                        span{ opacity: 1; }
+                        svg > polygon{
+                            fill: @black;
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                    p:before{ width: 100%; }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  market scope end                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.contact-holder{
+    .bg-title-holder{
+        span{ text-align: right; }
+    }
+    .inner{
+        .upperline{
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: @black;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        h2{
+            font-size: 2.25em;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        p{
+            text-align: center;
+            padding: 20px 40px 0;
+        }
+        .buttons-holder{
+            width: 440px;
+            height: auto;
+            margin: 40px auto 80px;
+            overflow: hidden;
+            .btn{
+                float: left;
+                margin-right: 40px;
+                svg > polygon{
+                    fill: @black;
+                    transition: all .25s @easing;
+                }
+                &:last-child{
+                    margin-right: 0;
+                    svg > polygon{
+                        fill: @gold;
+                    }
+                }
+                &:hover{
+                    svg > polygon{
+                        fill: fade(@black, 80%);
+                    }
+                    &:last-child{
+                        svg > polygon{
+                            fill: fade(@gold, 80%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    .bg-title-holder > span{ font-size: 8em; }
+
+    .hero-holder{
+        background: url("@{images}/hero-bg.jpg") no-repeat 50% 50%;
+        background-size: cover;
+        .corner{
+            right: 40px;
+            bottom: 40px;
+        }
+        .arrow-holder{ bottom: 40px; }
+    }
+
+    .about-holder{
+        .inner{
+            .info-holder{
+                .label{
+                    top: 0;
+                    left: auto;
+                    right: 0;
+                }
+                h2{ padding: 40px 40px 0; }
+                p{ padding: 20px 40px; }
+            }
+        }
+    }
+
+    .functionality-holder{
+        .bg-title-holder{
+            span{ text-align: right; }
+        }
+        .inner{
+            .desc-holder{ width: 100%; }
+            .items-holder{
+                margin: 40px auto 0;
+                .item{
+                    width: 100%;
+                    height: auto;
+                    padding-top: 0;
+                    float: none;
+                    margin: 0 0 20px 0;
+                    .info{
+                        position: relative;
+                        top: 0;
+                        transform: translateY(0%);
+                        .num-holder{ margin: 20px auto 0; }
+                    }
+                }
+            }
+        }
+    }
+
+    .v-touch .functionality-holder{
+        .inner{
+            .items-holder{
+                .item{
+                    width: 100%;
+                    height: auto;
+                    padding-top: 0%;
+                    float: none;
+                    margin: 0 0 20px 0;
+                }
+            }
+        }
+    }
+    
+    .market-scope-holder{
+        .inner{
+            .desc-holder{
+                width: 100%;
+                margin-left: 0;
+            }
+            .list-holder{
+                display: block;
+                width: 100%;
+                margin: 80px 0 0;
+                li{
+                    p{ font-size: 1em; }
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        .inner{
+            p{ padding: 20px 0 0; }
+            .buttons-holder{
+                width: 400px;
+                .btn{ margin-right: 40px; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+    
+    .bg-title-holder > span{ font-size: 4em; }
+
+    .hero-holder{
+        .inner{
+            top: 50%;
+            h1{
+                font-size: 5.5em;
+                line-height: 90px;
+            }
+            p{
+                font-size: .875em;
+                padding: 0 20px;
+            }
+        }
+        .lowpoly-holder{ display: none; }
+        .corner{
+            .lane{ width: 40px; }
+        }
+    }
+
+    .about-holder{
+        .inner{
+            .info-holder{
+                .corner{ display: none; }
+                h2{
+                    font-size: 1.5em;
+                    padding: 50px 20px 10px;
+                }
+                p{ padding: 0 20px; }
+                .progress-holder{ margin-top: 20px; }
+            }
+        }
+    }
+
+    .market-scope-holder{
+        .inner{
+            .desc-holder{
+                width: 100%;
+                margin-left: 0;
+            }
+            .list-holder{
+                display: block;
+                width: 100%;
+                margin: 40px 0 0;
+                li{
+                    height: 60px;
+                    .num-holder{ display: none; }
+                    p{
+                        font-size: 1em;
+                        line-height: 60px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        .inner{
+            h2{
+                font-size: 1.5em;
+                padding: 0 20px 10px;
+            }
+            p{ padding: 0; }
+            .buttons-holder{
+                width: 340px;
+                .btn{ margin-right: 20px; }
+            }
+        }
+    }
+    
+}
+
+@media only screen and @mobileS{
+
+    .hero-holder{
+        .inner{
+            top: 55%;
+            h1{
+                font-size: 4.75em;
+                line-height: 80px;
+            }
+        }
+        .corner{ display: none; }
+    }
+    
+    .about-holder{
+        .inner{
+            .info-holder{
+                .corner{ display: none; }
+                .label{
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                }
+                h2{ padding: 20px 0 10px; }
+                p{ padding: 0; }
+                .progress-holder{
+                    width: 100%;
+                    height: 40px;
+                    float: none;
+                    margin-bottom: 20px;
+                    p{
+                        font-size: .875em;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .market-scope-holder{
+        .inner{
+            .desc-holder{
+                width: 100%;
+                margin-left: 0;
+            }
+            .list-holder{
+                display: block;
+                width: 100%;
+                margin: 40px 0 0;
+                li{
+                    height: auto;
+                    margin-bottom: 20px;
+                    text-align: center;
+                    &:after{ display: none; }
+                    .num-holder{
+                        display: block;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        margin: 0 auto;
+                    }
+                    p{
+                        font-size: .875em;
+                        line-height: 16px;
+                        margin: 0;
+                        padding: 10px 20px 0;
+                        text-align: center;
+                        color: @gold;
+                        &:before{ display: none; }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        .inner{
+            .buttons-holder{
+                width: 100%;
+                margin: 20px 0 40px;
+                .btn{
+                    float: none;
+                    margin: 0 auto 10px;
+                    &:last-child{ margin: 0 auto; }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

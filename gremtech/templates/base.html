@@ -1,6 +1,8 @@
-{% load i18n %}
+{% load i18n metadata_tags %}
 
 {% get_current_language as LANGUAGE_CODE %}
+
+{% provide_metadata as METADATA %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">

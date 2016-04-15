@@ -19,9 +19,9 @@ class ForbidAddMixin():
 
 
 class GremtechAdminSite(admin.AdminSite):
-    site_title = 'Gremtech'
-    site_header = 'Deus Ex Machina'
-    index_title = 'Gremtech Administration'
+    site_title = 'GremTech R&D Center'
+    site_header = 'GremTech R&D Center'
+    index_title = 'GremTech - Управление Контентом'
 
 gremtech_admin_site = GremtechAdminSite(name='deus_ex_machina')
 

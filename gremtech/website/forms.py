@@ -9,7 +9,7 @@ class InvestmentForm(MailerMixin, forms.Form):
 
     project = forms.ModelChoiceField(
         queryset=Project.objects.all(),
-        empty_label=_(''),
+        empty_label=_('-'),
         widget=forms.RadioSelect,
     )
     name = forms.CharField(
@@ -40,7 +40,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # Name
         self.fields['name'].label = _('Имя')
         self.fields['name'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, введите имя'),
             'data-rule-minlength': 2,
@@ -57,7 +57,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # E-mail
         self.fields['email'].label = _('E-mail')
         self.fields['email'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, укажите e-mail'),
             'data-rule-email': 'true',
@@ -74,7 +74,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # Phone
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-maxlength': 19,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
             'data-mask': '+380 (99) 999-9999',
@@ -86,7 +86,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # Comment
         self.fields['comment'].label = _('Комментарий')
         self.fields['comment'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-minlength': 5,
             'data-msg-minlength': _('Этот комментарий слишком короткий'),
             'data-rule-maxlength': 500,
@@ -98,7 +98,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
-        subject = _('')
+        subject = _('-')
         template = 'website/emails/investment.html'
         context = {
             'project': self.cleaned_data['project'],
@@ -128,7 +128,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # Name
         self.fields['name'].label = _('Имя')
         self.fields['name'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, введите имя'),
             'data-rule-minlength': 2,
@@ -145,7 +145,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # E-mail
         self.fields['email'].label = _('E-mail')
         self.fields['email'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, укажите e-mail'),
             'data-rule-email': 'true',
@@ -162,7 +162,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # Phone
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-maxlength': 19,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
             'data-mask': '+380 (99) 999-9999',
@@ -174,7 +174,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # Message
         self.fields['message'].label = _('Сообщение')
         self.fields['message'].widget.attrs = {
-            'placeholder': _(''),
+            'placeholder': _('-'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, оставьте сообщение'),
             'data-rule-minlength': 5,
@@ -188,7 +188,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
-        subject = _('')
+        subject = _('-')
         template = 'website/emails/feedback.html'
         context = {
             'name': self.cleaned_data['name'],

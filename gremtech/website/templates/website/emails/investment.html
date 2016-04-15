@@ -1,10 +1,26 @@
+<h1>Новое предложение инвестиции!</h1>
+<h3>
+    Выбранный проект:
+</h3>
 <p>
     {{ project }}
-    {{ name }}
-    {{ email }}
-    {{ phone }}
-    {{ comment }}
 </p>
+<h3>
+    Данные пользователя:
+</h3>
+<p>
+    {{ name }}, {{ email }} {% if phone %}({{ phone }}){% endif %}
+</p>
+
+{% if comment %}
+    <h3>
+        'Комментарий:
+    </h3>
+    <p>
+        {{ comment }}
+    </p>
+{% endif %}
+
 <small>
-    {% now 'Y-m-d H:i:s' %}
+    Сообщение было отправлено в {% now 'Y-m-d H:i:s' %}
 </small>

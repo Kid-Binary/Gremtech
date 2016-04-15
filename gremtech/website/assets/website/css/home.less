@@ -1,0 +1,1220 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  hero intro start                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.hero-holder{
+    height: 100%;
+    position: relative;
+    background: url("@{images}/hero-bg.jpg") no-repeat 50% 100% fixed;
+    background-size: cover;
+    .inner{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        padding: 0;
+        transform: translateY(-50%);
+        .upper-title{
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.125em;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: @white;
+        }
+        h1{
+            text-align: center;
+            color: @white;
+            line-height: 130px;
+        }
+        p{
+            text-align: center;
+            color: @white;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    }
+    & > .corner{
+        position: absolute;
+        right: 80px;
+        bottom: 80px;
+        .lane{
+            height: 2px;
+            &:before{ background: @white; }
+        }
+    }
+    .arrow-holder{
+        width: 18px;
+        height: 12px;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        margin-left: -9px;
+        .arrow-down{
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 12px solid @white;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  hero intro end                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.about-holder{
+    .inner{
+        .info-holder{
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin-bottom: 80px;
+            .info{
+                width: 50%;
+                position: relative;
+                .corner{
+                    position: absolute;
+                    &.corner-tl{
+                        top: -40px;
+                        left: 0;
+                    }
+                    &.corner-br{
+                        right: 0;
+                        bottom: 0;
+                    }
+                    .lane{
+                        &:before{
+                            transition: all .5s @easing;
+                            transform: translateX(-100%);
+                        }
+                    }
+                }
+                .label{
+                    margin: 40px 0 40px -80px;
+                    span{
+                        color: @gold;
+                        opacity: 0;
+                        transition: all .5s @easing .5s;
+                    }
+                    svg > polygon{
+                        fill: transparent;
+                        stroke-width: 1px;
+                        stroke: @black;
+                        stroke-dasharray: 720px;
+                        stroke-dashoffset: 720px;
+                        transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                    }
+                }
+                h2, p{
+                    padding: 0 80px;
+                    text-align: left;
+                    opacity: 0;
+                    transition: all .5s @easing;
+                }
+                h2{
+                    font-size: 2.25em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding-bottom: 40px;
+                }
+                p{
+                    padding-bottom: 20px;
+                    &:last-child{
+                        padding-bottom: 80px;
+                    }
+                }
+            }
+            .numbers-holder{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                backface-visibility: hidden;
+            }
+            &.active{
+                .info{
+                    .corner{
+                        .lane{
+                            &:before{
+                                transform: translateX(0%);
+                            }
+                        }
+                    }
+                    .label{
+                        span{ opacity: 1; }
+                        svg > polygon{
+                            fill: @black;
+                            stroke-dashoffset: 0px;
+                        }
+                    }
+                    h2, p{
+                        opacity: 1;
+                    }
+                }
+            }   
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  about end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  services start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.services-holder{
+    .bg-title-holder{
+        span{ text-align: right; }
+    }
+    .inner{
+        padding-bottom: 80px;
+        .desc-holder{
+            max-width: 400px;
+            .upperline{
+                display: block;
+                width: 40px;
+                height: 2px;
+                margin-bottom: 20px;
+                background: @black;
+            }
+        }
+        .list-holder{
+            display: block;
+            width: 100%;
+            margin: 80px 0;
+            li{
+                display: block;
+                width: 100%;
+                height: 80px;
+                position: relative;
+                &:after{
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    content: "";
+                    background: @black;
+                    transition: all 1s @easing;
+                    overflow: hidden;
+                }
+                .num-holder{
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                    span{
+                        font-size: .875em;
+                        line-height: 30px;
+                        opacity: 0;
+                        transition: all .5s @easing .5s;
+                    }
+                    svg > polygon{
+                        fill: transparent;
+                        stroke-width: 1px;
+                        stroke: @black;
+                        stroke-dasharray: 240px;
+                        stroke-dashoffset: 240px;
+                        transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                    }
+                }
+                p{
+                    font-size: 1.125em;
+                    text-align: left;
+                    padding: 0 80px;
+                    line-height: 80px;
+                    text-transform: uppercase;
+                    span{
+                        display: inline-block;
+                        padding: 0 20px;
+                        font-size: inherit;
+                        font-weight: inherit;
+                        position: relative;
+                        &:before{
+                            display: block;
+                            width: 0%;
+                            height: 2px;
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            z-index: 10;
+                            content: "";
+                            background: @gold;
+                            transition: all .5s @easing .4s;
+                            overflow: hidden;
+                        }
+                    }
+                }
+                &.active{
+                    &:before,
+                    &:after{
+                        width: 100%;
+                    }
+                    .num-holder{
+                        span{ opacity: 1; }
+                        svg > polygon{
+                            fill: @black;
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                    p{
+                        span:before{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .btn{
+            margin: 0 auto;
+            svg > polygon{
+                fill: @black;
+            }
+            &:hover{
+                svg > polygon{
+                    fill: @gold;
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  services end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  projects start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.projects-holder{
+    .inner{
+        .item-holder{
+            position: relative;
+            margin-bottom: 200px;
+            .info-holder{
+                width: 50%;
+                position: relative;
+                .corner.corner-tl{
+                    position: absolute;
+                    top: -40px;
+                    left: 0;
+                    .lane{
+                        background: transparent;
+                        &:before{
+                            transform: translateX(-100%);
+                            transition: all .5s @easing 0s;
+                        }
+                    }
+                }
+                .label{
+                    margin: 0 0 40px -80px;
+                    span{
+                        color: @gold;
+                        opacity: 0;
+                        transition: all .5s @easing .5s;
+                    }
+                    svg > polygon{
+                        fill: transparent;
+                        stroke-width: 1px;
+                        stroke: @black;
+                        stroke-dasharray: 720px;
+                        stroke-dashoffset: 720px;
+                        transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                    }
+                    &.label-squared{
+                        position: absolute;
+                        top: -40px;
+                        right: 0;
+                        margin: 0;
+                        span{
+                            color: @white;
+                            &:before{
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                    } 
+                }
+                h2, p{
+                    padding: 0 80px;
+                    opacity: 0;
+                    transition: all .5s @easing 0s;
+                }
+                h2{
+                    font-size: 2.25em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding-bottom: 40px;
+                }
+                .action-holder{
+                    width: 100%;
+                    margin-top: 40px;
+                    overflow: hidden;
+                    .progress-holder{
+                        width: 40%;
+                        height: 50px;
+                        float: left;
+                        overflow: hidden;
+                        & > p{
+                            font-size: 1em;
+                            text-transform: uppercase;
+                            color: @black;
+                            font-weight: 300;
+                            line-height: 30px;
+                            padding: 0;
+                            text-align: left;
+                            opacity: 0;
+                            transition: all .5s @easing 0s;
+                            span{
+                                display: inline-block;
+                                float: right;
+                                color: @gold;
+                                font-weight: 400;
+                            }
+                        }
+                        .progress{
+                            width: 100%;
+                            height: 20px;
+                            background: @black;
+                            border: 2px solid @black;
+                            position: relative;
+                            box-sizing: border-box;
+                            opacity: 0;
+                            transition: all .5s @easing .5s;
+                            overflow: hidden;
+                            & > .progress-bar{
+                                display: block;
+                                width: 80%;
+                                height: 16px;
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                content: "";
+                                background: @gold;
+                                transform: translateX(-100%);
+                                transition: all .5s @easing 1s;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                    .btn{
+                        float: right;
+                        opacity: 0;
+                        transition: all .5s @easing 0s;
+                        svg > polygon{ fill: @black; }
+                        &:hover{
+                            span{ color: @white; }
+                            svg > polygon{
+                                fill: @gold;
+                                transition: all .25s @easing 0s;
+                            }
+                        }
+                    }
+                }
+            }
+            & > .graphic-holder{
+                width: 240px;
+                height: auto;
+                position: absolute;
+                right: 80px;
+                bottom: 0;
+            }
+            &.reverse{
+                .info-holder{
+                    margin-left: 50%;
+                }
+                & > .graphic-holder{
+                    width: 360px;
+                    top: 50%;
+                    left: 80px;
+                    right: auto;
+                    bottom: auto;
+                } 
+            }
+            &:last-child{ margin-bottom: 80px; }
+            &.active{
+                .info-holder{
+                    .corner.corner-tl{
+                        .lane:before{ transform: translateX(0%); }
+                    }
+                    .label{
+                        span{ opacity: 1; }
+                        svg > polygon{
+                            fill: @black;
+                            stroke-dashoffset: 0px;
+                        }
+                    }
+                    h2, p{ opacity: 1; }
+                }
+                .action-holder{
+                    .progress-holder{
+                        & > p{ opacity: 1; }
+                        .progress{
+                            opacity: 1;
+                            & > .progress-bar{ transform: translateX(0%); }
+                        }
+                    }
+                    .btn{ opacity: 1; }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  projects end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  team start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.team-holder{
+    .bg-title-holder{
+        span{ text-align: right; }
+    }
+    .inner{
+        .item-holder{
+            width: 100%;
+            height: auto;
+            margin-bottom: 80px;
+            overflow: hidden;
+            .photo-holder{
+                width: 50%;
+                float: left;
+                position: relative;
+                padding: 0 80px;
+                box-sizing: border-box;
+                .photo{
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    overflow: hidden;
+                    & > .lane{
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: @black;
+                        overflow: hidden;
+                        &:nth-child(1){
+                            transform: translateX(-100%) translateY(0%);
+                            transition: all .5s @easing;
+                        }
+                        &:nth-child(2){
+                            transition: all .5s @easing .5s;
+                            width: 2px;
+                            height: 100%;
+                            left: auto;
+                            right: 0;
+                            transform: translateX(0%) translateY(-100%);
+                        }
+                        &:nth-child(3){
+                            top: auto;
+                            bottom: 0;
+                            transition: all .5s @easing 1s;
+                            transform: translateX(100%) translateY(0%);
+                        }
+                        &:nth-child(4){
+                            width: 2px;
+                            height: 100%;
+                            transition: all .5s @easing 1.5s;
+                            transform: translateX(0%) translateY(100%);
+                        }
+                    }
+                }
+                .label{
+                    position: absolute;
+                    top: 40px;
+                    left: 0;
+                    span{
+                        color: @gold;
+                        opacity: 0;
+                        transition: all .5s @easing .5s;
+                    }
+                    svg > polygon{
+                        fill: transparent;
+                        stroke-width: 1px;
+                        stroke: @black;
+                        stroke-dasharray: 720px;
+                        stroke-dashoffset: 720px;
+                        transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                    }
+                }    
+            }
+            .info-holder{
+                width: 50%;
+                float: left;
+                position: relative;
+                overflow: hidden;
+                .corner{
+                    position: absolute;
+                    top: 40px;
+                    left: 0;
+                    .lane{
+                        &:before{
+                            transform: translateX(-100%);
+                            transition: all .5s @easing;
+                        }
+                    }
+                }
+                & > h2, 
+                & > p{
+                    opacity: 0;
+                    transition: all .5s @easing .5s;
+                }
+                & > h2{
+                    padding: 82px 40px 40px;
+                    font-size: 1.25em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                & > p{
+                    padding: 0 40px;
+                }
+                .numbers-holder{
+                    width: 410px;
+                    float: right;
+                    margin-top: 80px;
+                    .number{
+                        width: 110px;
+                        font-size: 4.5em;
+                        & > span{
+                            display: inline-block;
+                            vertical-align: middle;
+                            font-size: .35em;
+                            margin-top: -10px;
+                        }
+                    }
+                }
+            }
+            &.reverse{
+                .photo-holder,
+                .info-holder{
+                    float: right;
+                }
+            }
+            &:last-child{ margin-bottom: 0; }
+            &.active{
+                .photo-holder{
+                    .photo{
+                        & > .lane{
+                            transform: translateX(0%) translateY(0%);
+                        }
+                    }
+                    .label{
+                        span{
+                            opacity: 1;
+                        }
+                        svg > polygon{
+                            fill: @black;
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                }
+                .info-holder{
+                    .corner{
+                        .lane{
+                            &:before{
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+                    h2, p{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  team end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.contact-holder{
+    .inner{
+        .upperline{
+            display: block;
+            width: 80px;
+            height: 2px;
+            margin: 0 auto;
+            background: @black;
+            overflow: hidden;
+        }
+        h2{
+            font-size: 2.25em;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 40px 40px 10px;
+        }
+        p{
+            padding: 0 40px;
+            text-align: center;
+        }
+        .buttons-holder{
+            width: 440px;
+            height: auto;
+            margin: 40px auto 80px;
+            overflow: hidden;
+            .btn{
+                float: left;
+                margin-right: 40px;
+                svg > polygon{
+                    fill: @black;
+                    transition: all .25s @easing;
+                }
+                &:last-child{
+                    margin-right: 0;
+                    svg > polygon{
+                        fill: @gold;
+                    }
+                }
+                &:hover{
+                    svg > polygon{
+                        fill: fade(@black, 80%);
+                    }
+                    &:last-child{
+                        svg > polygon{
+                            fill: fade(@gold, 80%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  contact end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    .hero-holder{
+        background: url("@{images}/hero-bg.jpg") no-repeat 50% 0%;
+        background-size: cover;
+        & > .corner{
+            right: 40px;
+            bottom: 40px;
+        }
+        .arrow-holder{
+            bottom: 40px;
+        }
+    }
+    
+    .about-holder{
+        .inner{
+            .info-holder{
+                margin-bottom: 0;
+                .info{
+                    width: 100%;
+                    .corner.corner-tl{ top: 0; }
+                    .label{
+                        margin: 0;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                    h2, p{ padding: 0 40px; }
+                    h2{ padding: 40px 40px 20px; }
+                    p:last-child{ padding-bottom: 40px; }
+                }
+                .numbers-holder{
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    margin: 160px auto 0; 
+                    transform: translateY(0%);
+                }
+            }
+        }
+    }
+    
+    .services-holder{
+        .inner{
+            padding-bottom: 40px;
+            .desc-holder{ max-width: 100%; }
+            .list-holder{
+                margin: 40px 0;
+                li{
+                    .num-holder{
+                        left: 0;
+                    }
+                    p{
+                        font-size: 1em;
+                        padding: 0 0 0 50px;
+                    }
+                }
+            }
+            .btn{
+                margin: 0 auto;
+                svg > polygon{
+                    fill: @black;
+                }
+                &:hover{
+                    svg > polygon{
+                        fill: @gold;
+                    }
+                }
+            }
+        }
+    }
+    
+    .projects-holder{
+        .inner{
+            .item-holder{
+                margin-bottom: 80px;
+                padding: 0 0 0 40px;
+                .info-holder{
+                    width: 100%;
+                    .corner.corner-tl{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    .label{
+                        margin: 0;
+                        position: absolute;
+                        top: 20px;
+                        left: -40px;
+                        &.label-squared{
+                            top: 0;
+                            right: 0;
+                            left: auto;
+                        } 
+                    }
+                    h2, p{ padding: 0 40px; }
+                    h2{ padding: 75px 40px 40px; }
+                    .action-holder{
+                        width: 100%;
+                        margin-top: 40px;
+                        overflow: hidden;
+                        .progress-holder{
+                            height: 45px;
+                            & > p{
+                                font-size: .875em;
+                                line-height: 25px;
+                            }
+                        }
+                    }
+                }
+                & > .graphic-holder{ display: none; }
+                &.reverse .info-holder{ margin-left: 0; } 
+                &:last-child{ margin-bottom: 80px; }
+            }
+        }
+    }
+    
+    .team-holder{
+        .inner{
+            .item-holder{
+                margin-bottom: 40px;
+                .photo-holder{
+                    width: 100%;
+                    float: none;   
+                }
+                .info-holder{
+                    width: 100%;
+                    float: none;
+                    margin-top: 40px;
+                    .corner{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        .lane{
+                            &:before{
+                                transform: translateX(-100%);
+                                transition: all .5s @easing;
+                            }
+                        }
+                    }
+                    & > h2{
+                        padding: 40px 40px 40px;
+                        font-size: 1.25em;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                    }
+                    & > p{ padding: 0 40px; }
+                    .numbers-holder{
+                        margin-top: 80px;
+                    }
+                }
+                &.reverse{
+                    .photo-holder,
+                    .info-holder{
+                        float: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    .contact-holder{
+        .inner{
+            p{ padding: 0; }
+            .buttons-holder{
+                width: 400px;
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileM{
+
+    .hero-holder{
+        .inner{
+            .upper-title{ font-size: 1em; }
+            h1{
+                font-size: 5.5em;
+                line-height: 90px;
+            }
+            p{ font-size: .875em; }
+        }
+        & > .corner{
+            width: 40px;
+            height: 40px;
+        }
+        .arrow-holder{
+            width: 14px;
+            height: 8px;
+            margin-left: -7px;
+            .arrow-down{
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 10px solid @white;
+            }
+        }
+    }
+    
+    .about-holder{
+        .inner{
+            .info-holder{
+                margin-bottom: 0;
+                .info{
+                    .corner{ display: none; }
+                    h2, p{ padding: 0 20px; }
+                    h2{
+                        font-size: 1.5em;
+                        padding: 50px 20px 10px;
+                    }
+                    p:last-child{ padding-bottom: 40px; }
+                }
+                .numbers-holder{
+                    margin: 120px auto 0;
+                }
+            }
+        }
+    }
+
+    .services-holder{
+        .inner{
+            .list-holder{
+                margin: 40px 0;
+                li{
+                    height: 60px;
+                    .num-holder{ display: none; }
+                    p{
+                        font-size: .875em;
+                        padding: 0;
+                        line-height: 60px;
+                        span{ padding: 0; }
+                    }
+                }
+            }
+        }
+    }
+    
+    .projects-holder{
+        .inner{
+            .item-holder{
+                margin-bottom: 80px;
+                padding: 0;
+                .info-holder{
+                    width: 100%;
+                    .corner.corner-tl{
+                        display: none;
+                    }
+                    .label{
+                        margin: 0;
+                        position: absolute;
+                        top: 0;
+                        left: 0px;
+                        &.label-squared{
+                            width: 30px;
+                            height: 30px;
+                            top: 0;
+                            right: 0;
+                            left: auto;
+                            span{
+                                font-size: 1.25em;
+                                line-height: 30px;
+                                color: @black;
+                            }
+                            svg{ display: none; }
+                        } 
+                    }
+                    h2, p{ padding: 0 20px; }
+                    h2{
+                        font-size: 1.5em;
+                        padding: 50px 20px 10px;
+                    }
+                    .action-holder{
+                        width: 100%;
+                        margin-top: 40px;
+                        overflow: hidden;
+                        .progress-holder{
+                            height: 40px;
+                            & > p{
+                                font-size: .875em;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+                & > .graphic-holder{ display: none; }
+                &.reverse .info-holder{ margin-left: 0; } 
+                &:last-child{ margin-bottom: 40px; }
+            }
+        }
+    }
+    
+    .team-holder{
+        .inner{
+            .item-holder{
+                margin-bottom: 40px;
+                .photo-holder{
+                    padding: 0 20px 0 40px;  
+                }
+                .info-holder{
+                    margin-top: 0;
+                    .corner{
+                        display: none;
+                    }
+                    & > h2{
+                        padding: 20px 40px 10px;
+                    }
+                    & > p{ padding: 0 40px; }
+                    .numbers-holder{
+                        width: 100%;
+                        padding: 0 40px;
+                        box-sizing: border-box;
+                        margin-top: 80px;
+                        .item{
+                            width: 33.33333333333333%;
+                            margin-right: 0;
+                            padding-right: 10px;
+                            box-sizing: border-box;
+                            .number{
+                                width: 100%;
+                                font-size: 3.5em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-holder{
+        .inner{
+            h2{
+                font-size: 1.5em;
+                padding: 20px 20px 10px;
+            }
+            p{ padding: 0; }
+            .buttons-holder{
+                width: 340px;
+                .btn{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .hero-holder{
+        .inner{
+            top: 55%;
+            .upper-title{
+                font-size: .875em;
+                margin-bottom: 10px;
+            }
+            h1{
+                font-size: 4.75em;
+                line-height: 80px;
+            }
+            p{ font-size: .75em; }
+        }
+        & > .corner{
+            display: none;
+        }
+        .arrow-holder{
+            bottom: 20px;
+        }
+    }
+    
+    .about-holder{
+        .inner{
+            .info-holder{
+                margin-bottom: 0;
+                .info{
+                    .corner{ display: none; }
+                    .label{
+                        position: relative;
+                        top: auto;
+                        right: auto;
+                    }
+                    h2, p{ padding: 0 0 10px; }
+                    h2{
+                        font-size: 1.5em;
+                        padding: 20px 0 10px;
+                    }
+                    p:last-child{ padding-bottom: 0; }
+                }
+                .numbers-holder{
+                    margin: 120px auto 0;
+                }
+            }
+        }
+    }
+    
+    .services-holder{
+        .inner{
+            .desc-holder{
+                .upperline{ width: 20px; }
+                p{ font-size: .875em; }
+            }
+            .list-holder{
+                margin: 40px 0;
+                li{
+                    height: auto;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    &:after{ display: none; }
+                    .num-holder{
+                        display: block;
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        float: left;
+                    }
+                    p{
+                        font-size: .875em;
+                        line-height: 16px;
+                        padding: 0 20px 0 50px;
+                        span{
+                            padding: 0;
+                            color: @gold;
+                            &:before{ display: none; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .projects-holder{
+        .inner{
+            .item-holder{
+                padding: 0;
+                .info-holder{
+                    h2, p{ padding: 0; }
+                    h2{
+                        font-size: 1.5em;
+                        padding: 50px 0 10px;
+                    }
+                    .action-holder{
+                        width: 100%;
+                        height: auto;
+                        margin-top: 20px;
+                        overflow: hidden;
+                        .progress-holder{
+                            width: 100%;
+                            height: 40px;
+                            float: none;
+                            & > p{
+                                font-size: .875em;
+                                line-height: 20px;
+                            }
+                        }
+                        .btn{ margin-top: 20px; }
+                    }
+                }
+            }
+        }
+    }
+
+    .team-holder{
+        .inner{
+            .item-holder{
+                margin-bottom: 40px;
+                .photo-holder{
+                    padding: 0 0 0 20px;
+                }
+                .info-holder{
+                    & > h2{
+                        padding: 20px 0 10px;
+                    }
+                    & > p{ padding: 0; }
+                    .numbers-holder{
+                        padding: 0;
+                        .item{
+                            .number{
+                                font-size: 3em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .contact-holder{
+        .inner{
+            .upperline{
+                width: 40px;
+            }
+            h2{
+                font-size: 1.5em;
+                padding: 20px 0 10px;
+            }
+            p{ padding: 0; }
+            .buttons-holder{
+                width: 160px;
+                margin: 10px auto 40px;
+                .btn{
+                    margin: 10px 0 0;
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

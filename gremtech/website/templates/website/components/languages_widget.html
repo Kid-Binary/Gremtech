@@ -1,23 +1,26 @@
-{% load i18n %}
+{% load i18n website_helpers %}
 
 {% get_current_language as current_language %}
 {% get_available_languages as available_languages %}
 {% get_language_info_list for available_languages as language_info_list %}
 
-{% for language in language_info_list %}
-    <p>
+<div id="langs-holder">
 
-        {% language language.code %}
+    {% for language in language_info_list %}
+        <div class="btn btn-squared btn-small {% if language.code == current_language %}active{% endif %}">
 
-            {% with path=request.resolver_match.app_name|add:':'|add:request.resolver_match.url_name %}
-                <a href="{% url path %}">{{ language.code }}</a>
-            {% endwith %}
+            {% language language.code %}
 
-        {% endlanguage %}
+                {% get_url_with_kwargs request as url_with_kwargs %}
 
-        {% if language.code == current_language %}
-        (active)
-        {% endif %}
+                <a href="{{ url_with_kwargs }}">{{ language.code }}</a>
 
-    </p>
-{% endfor %}
+            {% endlanguage %}
+
+            <svg viewBox="0 0 60 60">
+                <polygon points="0,60 0,10 10,0 60,0 60,50 50,60" />
+            </svg>
+        </div>
+    {% endfor %}
+
+</div>

@@ -1,0 +1,19 @@
+{% extends 'website/errors/layout.html' %}
+
+{% block title %}
+    404 - Not Found
+{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="Description" content="404 - Not Found">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+{% endblock %}
+
+{% block error_description %}
+    Not Found
+{% endblock %}
+
+{% block error_code %}
+    404
+{% endblock %}

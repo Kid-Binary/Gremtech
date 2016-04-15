@@ -7,3 +7,27 @@
     title_ru: Главная
     description_ru: Описание
     robots: index,follow,archive
+
+- model: metadata.Metadata
+  pk: 2
+  fields:
+    url_name: project
+    title_ru: Проект
+    description_ru: Описание
+    robots: index,follow,archive
+
+- model: metadata.Metadata
+  pk: 3
+  fields:
+    url_name: feedback
+    title_ru: Написать нам
+    description_ru: Описание
+    robots: index,follow,archive
+
+- model: metadata.Metadata
+  pk: 4
+  fields:
+    url_name: investment
+    title_ru: Инвестировать
+    description_ru: Описание
+    robots: index,follow,archive

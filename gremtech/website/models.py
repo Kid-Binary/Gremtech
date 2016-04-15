@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
@@ -20,6 +22,9 @@ class ContentBlock(models.Model):
     def __str__(self):
         return self.name
 
+    def get_template_block_name(self):
+        return self.name.replace(' ', '_').lower()
+
 
 class Intro(ContentBlock, metaclass=TransMeta):
     headline = models.CharField('Деятельность', max_length=200)
@@ -27,7 +32,7 @@ class Intro(ContentBlock, metaclass=TransMeta):
     bottomline = models.CharField('Слоган', max_length=200)
 
     class Meta:
-        order_prefix = ' ' * 9
+        order_prefix = ' ' * 10
 
         verbose_name = 'Блок "Intro"'
         verbose_name_plural = order_prefix + 'Блок "Intro"'
@@ -41,19 +46,22 @@ class WeAre(ContentBlock, metaclass=TransMeta):
     text = models.TextField('Текст', max_length=1000)
 
     class Meta:
-        order_prefix = ' ' * 8
+        order_prefix = ' ' * 9
 
         verbose_name = 'Блок "We Are"'
         verbose_name_plural = order_prefix + 'Блок "We Are"'
 
         translate = ('headline', 'title', 'text',)
 
+    def get_numbers(self):
+        return self.number_set.all()
+
 
 class WhatWeDo(ContentBlock, metaclass=TransMeta):
     text = models.TextField('Текст', max_length=1000)
 
     class Meta:
-        order_prefix = ' ' * 7
+        order_prefix = ' ' * 8
 
         verbose_name = 'Блок "What We Do"'
         verbose_name_plural = order_prefix + 'Блок "What We Do"'
@@ -66,10 +74,23 @@ class GetInTouch(ContentBlock, metaclass=TransMeta):
     text = models.TextField('Текст', max_length=1000)
 
     class Meta:
-        order_prefix = ' ' * 6
+        order_prefix = ' ' * 7
 
         verbose_name = 'Блок "Get In Touch"'
         verbose_name_plural = order_prefix + 'Блок "Get In Touch"'
+
+        translate = ('title', 'text',)
+
+
+class WorkWithUs(ContentBlock, metaclass=TransMeta):
+    title = models.CharField('Заголовок', max_length=100)
+    text = models.CharField('Текст', max_length=1000)
+
+    class Meta:
+        order_prefix = ' ' * 6
+
+        verbose_name = 'Блок "Work With Us"'
+        verbose_name_plural = order_prefix + 'Блок "Work With Us"'
 
         translate = ('title', 'text',)
 
@@ -88,6 +109,7 @@ class Service(models.Model, metaclass=TransMeta):
 
     def __str__(self):
         return "%s %s" % (self.action, self.subject)
+
 
 class Employee(models.Model, metaclass=TransMeta):
     PHOTO_PATH = 'photos/'
@@ -108,6 +130,13 @@ class Employee(models.Model, metaclass=TransMeta):
 
     def __str__(self):
         return self.position
+
+    @property
+    def full_name(self):
+        return ''.join([self.surname, ' ', self.name])
+
+    def get_numbers(self):
+        return self.number_set.all()
 
     def image_thumb(self):
         return '<img src="%s" width="400">' % (self.photo.url)
@@ -131,12 +160,18 @@ class Stage(models.Model, metaclass=TransMeta):
 
 
 class Project(models.Model, metaclass=TransMeta):
-    visuals = models.CharField(max_length=50)
+    visual_class = models.CharField(max_length=50)
+    icon = models.CharField(max_length=50)
+    image = models.CharField(max_length=50)
     title = models.CharField('Название', max_length=100)
+    intro_phrase = models.CharField('Вступительная фраза', max_length=200)
     description_short = models.CharField('Краткое описание', max_length=200)
     description_full = models.TextField('Подробное описание', max_length=1000)
-    additional = models.TextField(
-        'Дополнительно', max_length=1000, null=True, blank=True
+    description_functionality = models.TextField(
+        'Описание функциональности', max_length=1000,
+    )
+    description_scope = models.TextField(
+        'Описание сферы применения', max_length=1000,
     )
     completion = models.IntegerField(
         'Готовность стадии (%)', default=0, validators=[
@@ -157,13 +192,21 @@ class Project(models.Model, metaclass=TransMeta):
 
         translate = (
             'title',
+            'intro_phrase',
             'description_short',
             'description_full',
-            'additional',
+            'description_functionality',
+            'description_scope',
         )
 
     def __str__(self):
         return self.title
+
+    def get_functionalities(self):
+        return self.functionality_set.all()
+
+    def get_scopes(self):
+        return self.scope_set.all()
 
 
 class Functionality(models.Model, metaclass=TransMeta):
@@ -221,6 +264,22 @@ class Number(models.Model, metaclass=TransMeta):
 
     def __str__(self):
         return self.description
+
+    def get_formatted_quantity(self):
+        formatters = [self.quantity_zero_fill, self.quantity_extra_plus]
+
+        quantity = reduce(lambda x, F: F(x), formatters, self.quantity)
+
+        return quantity
+
+    def quantity_zero_fill(self, quantity):
+        return str(quantity).zfill(2)
+
+    def quantity_extra_plus(self, quantity):
+        if self.extra:
+            quantity = ''.join([quantity, '<span>+</span>'])
+
+        return quantity
 
 
 class Contact(models.Model):

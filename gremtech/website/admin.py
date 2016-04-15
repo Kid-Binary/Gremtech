@@ -5,13 +5,13 @@ from transmeta import canonical_fieldname
 
 from .models import (
     Number, Stage, Scope, Functionality,
-    Intro, WeAre, WhatWeDo, GetInTouch,
-    Service, Employee, Project, Contact
+    Intro, WeAre, WhatWeDo, GetInTouch, WorkWithUs,
+    Service, Employee, Project, Contact,
 )
 
 from gremtech.admin import (
     ForbidAddMixin, ForbidDeleteMixin,
-    gremtech_admin_site, DefaultOrderingModelAdmin
+    gremtech_admin_site, DefaultOrderingModelAdmin,
 )
 
 
@@ -126,6 +126,23 @@ class GetInTouchAdmin(ContentBlockMixin, DefaultOrderingModelAdmin):
     )
 
 
+@admin.register(WorkWithUs, site=gremtech_admin_site)
+class WorkWithUsAdmin(ContentBlockMixin, DefaultOrderingModelAdmin):
+    fieldsets = (
+        ('Русский', {
+            'fields': ('title_ru', 'text_ru',)
+        }),
+        ('Украинский', {
+            'classes': ('collapse',),
+            'fields': ('title_uk', 'text_uk',)
+        }),
+        ('Английский', {
+            'classes': ('collapse',),
+            'fields': ('title_en', 'text_en',)
+        }),
+    )
+
+
 @admin.register(Service, site=gremtech_admin_site)
 class ServiceAdmin(DefaultOrderingModelAdmin):
     fieldsets = (
@@ -193,27 +210,33 @@ class ProjectAdmin(
         ('Русский', {
             'fields': (
                 'title_ru',
+                'intro_phrase_ru',
                 'description_short_ru',
                 'description_full_ru',
-                'additional_ru',
+                'description_functionality_ru',
+                'description_scope_ru',
             )
         }),
         ('Украинский', {
             'classes': ('collapse',),
             'fields': (
                 'title_uk',
+                'intro_phrase_uk',
                 'description_short_uk',
                 'description_full_uk',
-                'additional_uk',
+                'description_functionality_uk',
+                'description_scope_uk',
             )
         }),
         ('Английский', {
             'classes': ('collapse',),
             'fields': (
                 'title_en',
+                'intro_phrase_en',
                 'description_short_en',
                 'description_full_en',
-                'additional_en',
+                'description_functionality_en',
+                'description_scope_en',
             )
         }),
     )
@@ -226,6 +249,8 @@ class ProjectAdmin(
 
         if db_fieldname == 'description_short':
             field.widget = forms.Textarea(attrs={'cols': '80', 'rows': '5'})
+        elif db_fieldname == 'intro_phrase':
+            field.widget = forms.TextInput(attrs={'size': '80'})
 
         return field
 

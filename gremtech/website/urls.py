@@ -5,7 +5,7 @@ from . import views
 app_name = 'website'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^project$', views.project, name='project'),
+    url(r'^project/(?P<id>[0-9]+)$', views.project, name='project'),
     url(r'^investment$', views.investment, name='investment'),
     url(r'^investment_send$', views.investment_send, name='investment_send'),
     url(r'^feedback$', views.feedback, name='feedback'),

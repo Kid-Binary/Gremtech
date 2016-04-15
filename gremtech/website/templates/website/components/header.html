@@ -1,0 +1,9 @@
+{% load staticfiles i18n %}
+
+<header id="header">
+    <div class="logo">
+        <a href="{% url 'website:index' %}">
+            <img src="{% static 'website/images/logo.png' %}" alt="{% trans 'GremTech R&D Center' noop %}">
+        </a>
+    </div>
+</header>
