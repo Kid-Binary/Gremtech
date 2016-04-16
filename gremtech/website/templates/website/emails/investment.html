@@ -5,22 +5,22 @@
 <p>
     {{ project }}
 </p>
-<h3>
+<h4>
     Данные пользователя:
-</h3>
+</h4>
 <p>
-    {{ name }}, {{ email }} {% if phone %}({{ phone }}){% endif %}
+    {{ name }}, {{ email }} {% if phone %}[{{ phone }}]{% endif %}
 </p>
 
 {% if comment %}
-    <h3>
+    <h4>
         'Комментарий:
-    </h3>
+    </h4>
     <p>
         {{ comment }}
     </p>
 {% endif %}
 
 <small>
-    Сообщение было отправлено в {% now 'Y-m-d H:i:s' %}
+    Сообщение было отправлено {% now 'Y-m-d' %}, в {% now 'H:i' %}
 </small>

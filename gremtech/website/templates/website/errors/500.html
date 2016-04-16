@@ -1,12 +1,11 @@
 {% extends 'website/errors/layout.html' %}
 
 {% block title %}
-    500 - Internal Server Error
+    500 - Internal Server Error | {% trans 'GremTech R&D Center' noop %}
 {% endblock %}
 
 {% block meta %}
     {{ block.super }}
-    <meta name="Description" content="500 - Internal Server Error">
     <meta name="robots" content="noindex,nofollow,noarchive">
 {% endblock %}
 

@@ -1,9 +1,77 @@
 {% extends 'website/forms/layout.html' %}
 
-{% block body %}
-    <form action="{% url 'website:investment_send' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit" />
-    </form>
+{% load staticfiles i18n %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/investment.bundle.min.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="investment-holder">
+        <div class="bg-title-holder">
+            <span>{% trans 'Part Of It' noop %}</span>
+        </div>
+        <div class="inner">
+            <div class="info-holder">
+                <div class="corner corner-tl">
+                    <span class="lane"></span>
+                    <span class="lane"></span>
+                </div>
+                <div class="label">
+                    <span>{% trans 'Инвестиция в проект' %}</span>
+                    <svg viewBox="0 0 300 45">
+                        <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+                    </svg>
+                </div>
+                <h1>{% trans 'Форма инвестиции' %}</h1>
+                <form action="{% url 'website:investment_send' %}" method="POST" id="investment-form">
+
+                    {% csrf_token %}
+
+                    <div id="response-holder"></div>
+
+                    <div class="field-holder">
+                        {{ form.name }}
+                    </div>
+                    <div class="field-holder">
+                        {{ form.email }}
+                    </div>
+                    <div class="field-holder">
+                        {{ form.phone }}
+                    </div>
+                    <p>{% trans 'Выберите проект для инвестиции' %}</p>
+
+
+                    {% for choice in form.project %}
+                        <div class="field-holder">
+                            {{ choice.tag }}
+                            <label for="{{ choice.id_for_label }}">
+                                <div class="check">
+                                    <span class="icon {% cycle 'icon-hand' 'icon-arm' 'icon-brain' %}"></span>
+                                    <svg viewBox="0 0 60 60">
+                                        <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                    </svg>
+                                </div>
+                                <span class="title">{{ choice.choice_label }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+
+                    <div class="field-holder">
+                        {{ form.comment }}
+                    </div>
+                    <button type="submit">
+                        <span>{% trans 'Инвестировать' %}</span>
+                        <svg viewBox="0 0 200 50">
+                            <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{% static 'website/js/investment.bundle.min.js' %}"></script>
 {% endblock %}

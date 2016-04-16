@@ -1,9 +1,59 @@
 {% extends 'website/forms/layout.html' %}
 
-{% block body %}
-    <form action="{% url 'website:feedback_send' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit" />
-    </form>
+{% load staticfiles i18n %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/feedback.bundle.min.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="feedback-holder">
+        <div class="bg-title-holder">
+            <span>{% trans 'Connection' noop %}</span>
+        </div>
+        <div class="inner">
+            <div class="info-holder">
+                <div class="corner corner-tl">
+                    <span class="lane"></span>
+                    <span class="lane"></span>
+                </div>
+                <div class="label">
+                    <span>{% trans 'Связь с GremTech' %}</span>
+                    <svg viewBox="0 0 300 45">
+                        <polygon points="0,10 10,0 300,0 300,35 290,45 0,45 "/>
+                    </svg>
+                </div>
+                <h1>{% trans 'Форма обратной связи' %}</h1>
+                <form action="{% url 'website:feedback_send' %}" method="POST" id="feedback-form">
+
+                    {% csrf_token %}
+
+                    <div id="response-holder"></div>
+
+                    <div class="field-holder">
+                        {{ form.name }}
+                    </div>
+                    <div class="field-holder">
+                        {{ form.email }}
+                    </div>
+                    <div class="field-holder">
+                        {{ form.phone }}
+                    </div>
+                    <div class="field-holder">
+                        {{ form.message }}
+                    </div>
+                    <button type="submit">
+                        <span>{% trans 'Отправить' %}</span>
+                        <svg viewBox="0 0 200 50">
+                            <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{% static 'website/js/feedback.bundle.min.js' %}"></script>
 {% endblock %}

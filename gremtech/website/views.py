@@ -1,10 +1,15 @@
+import time
+import json
+
 from django.core.exceptions import PermissionDenied
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import (
     render, get_object_or_404, get_list_or_404
 )
 from django.utils.translation import ugettext as _
-from django.utils.decorators import decorator_from_middleware
+from django.utils.decorators import (
+    decorator_from_middleware, decorator_from_middleware_with_args
+)
 
 from gremtech.middleware.browser_checker import BrowserCheckerMiddleware
 
@@ -93,27 +98,34 @@ def investment(request):
 
 
 def investment_send(request):
-    # and request.is_ajax():
-    if request.method == 'POST':
+    if request.method == 'POST' and request.is_ajax():
         form = InvestmentForm(request.POST)
 
         if form.is_valid():
-            # form.send_email()
+            form.send_email()
+            message = _('Спасибо за предложение!'
+                        ' Наш менеджер свяжется с вами в ближайшее время.'
+                        ' Хорошего вам дня!')
+
             response = {
-                'data': {'message': _('Valid')},
+                'data': {'message': message},
                 'code': 200,
             }
         else:
-            errors = get_form_errors(form.errors.items())
+            message = _('Пожалуйста, исправьте ошибки,'
+                        ' которые возникли при заполнении формы:')
+            errors = get_form_errors(form, form.errors.items())
 
             response = {
-                'data': {'message': _('Invalid'), 'errors': errors},
+                'data': {'message': message, 'errors': errors},
                 'code': 400,
             }
     else:
         raise PermissionDenied
 
-    return JsonResponse(response['data'], status=response['code'])
+    time.sleep(1)
+
+    return HttpResponse(json.dumps(response['data']), status=response['code'])
 
 
 @decorator_from_middleware(BrowserCheckerMiddleware)
@@ -129,31 +141,42 @@ def feedback(request):
 
 
 def feedback_send(request):
-    # and request.is_ajax():
-    if request.method == 'POST':
+    if request.method == 'POST' and request.is_ajax():
         form = FeedbackForm(request.POST)
 
         if form.is_valid():
-            # form.send_email()
+            form.send_email()
+            message = _('Спасибо за сообщение!'
+                        ' Мы ответим на него в ближайшее время.'
+                        ' Хорошего вам дня!')
+
             response = {
-                'data': {'message': _('Valid')},
+                'data': {'message': message},
                 'code': 200,
             }
         else:
-            errors = get_form_errors(form.errors.items())
+            message = _('Пожалуйста, исправьте ошибки,'
+                        ' которые возникли при заполнении формы:')
+            errors = get_form_errors(form, form.errors.items())
 
             response = {
-                'data': {'message': _('Invalid'), 'errors': errors},
+                'data': {'message': message, 'errors': errors},
                 'code': 400,
             }
     else:
         raise PermissionDenied
 
-    return JsonResponse(response['data'], status=response['code'])
+    time.sleep(1)
+
+    return HttpResponse(json.dumps(response['data']), status=response['code'])
 
 
+browser_checker = decorator_from_middleware_with_args(BrowserCheckerMiddleware)
+
+
+@browser_checker(target_view=True)
 def old_browser(request):
-    return HttpResponse('Fuck')
+    return render(request, 'website/errors/old_browser.html')
 
 
 @decorator_from_middleware(BrowserCheckerMiddleware)

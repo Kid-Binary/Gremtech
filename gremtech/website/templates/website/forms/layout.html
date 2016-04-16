@@ -1,1 +1,40 @@
 {% extends 'layout.html' %}
+
+{% load i18n %}
+
+{% block title %}
+    {{ METADATA.title }} | {% trans 'GremTech R&D Center' noop %}
+{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="Description" content="{{ METADATA.description }}">
+    <meta name=“robots” content="{{ METADATA.robots }}">
+{% endblock %}
+
+{% block body %}
+    <div id="page" class="v-touch">
+        <header id="header">
+            <div class="back-holder">
+                <a href="{% url 'website:index' %}"><span class="arrow-left"></span>{% trans 'назад' %}</a>
+            </div>
+
+            {% include 'website/components/languages_widget.html' with request=request only %}
+
+        </header>
+        <main id="content">
+
+            {% block content %}{% endblock %}
+
+        </main>
+        <div id="loader-holder">
+			<span class="lane"></span>
+		</div>
+
+        {% include 'website/components/preloader.html' only %}
+
+    </div>
+
+    {% include 'website/components/orientation_widget.html' only %}
+
+{% endblock %}

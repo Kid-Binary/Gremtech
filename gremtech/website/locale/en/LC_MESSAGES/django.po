@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 16:02+0300\n"
+"POT-Creation-Date: 2016-04-16 15:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,97 +17,118 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: website/forms.py:12 website/forms.py:43 website/forms.py:60
-#: website/forms.py:77 website/forms.py:89 website/forms.py:101
-#: website/forms.py:131 website/forms.py:148 website/forms.py:165
-#: website/forms.py:177 website/forms.py:191
-msgid "-"
-msgstr ""
+#: website/forms.py:16
+#, python-format
+msgid "Проект %s"
+msgstr "Project %s"
 
-#: website/forms.py:30
+#: website/forms.py:42
 msgid "Проект"
 msgstr "Project"
 
-#: website/forms.py:33 website/forms.py:36
+#: website/forms.py:45 website/forms.py:48
 msgid "Пожалуйста, выберите проект"
 msgstr "Please, choose project"
 
-#: website/forms.py:37
+#: website/forms.py:49
 msgid "У нас нет такого проекта"
 msgstr "We don't have such project"
 
-#: website/forms.py:41 website/forms.py:129
+#: website/forms.py:53 website/forms.py:144
 msgid "Имя"
 msgstr "Name"
 
-#: website/forms.py:45 website/forms.py:52 website/forms.py:133
-#: website/forms.py:140
+#: website/forms.py:55 website/forms.py:146
+msgid "Введите имя"
+msgstr "Enter name"
+
+#: website/forms.py:57 website/forms.py:64 website/forms.py:148
+#: website/forms.py:155
 msgid "Пожалуйста, введите имя"
 msgstr "Please, enter name"
 
-#: website/forms.py:47 website/forms.py:53 website/forms.py:135
-#: website/forms.py:141
+#: website/forms.py:59 website/forms.py:65 website/forms.py:150
+#: website/forms.py:156
 msgid "Имя слишком короткое"
 msgstr "Name is too short"
 
-#: website/forms.py:49 website/forms.py:54 website/forms.py:137
-#: website/forms.py:142
+#: website/forms.py:61 website/forms.py:66 website/forms.py:152
+#: website/forms.py:157
 msgid "Имя слишком длинное"
 msgstr "Name is too long"
 
-#: website/forms.py:58 website/forms.py:146
+#: website/forms.py:70 website/forms.py:161
 msgid "E-mail"
 msgstr "E-mail"
 
-#: website/forms.py:62 website/forms.py:69 website/forms.py:150
-#: website/forms.py:157
+#: website/forms.py:72 website/forms.py:163
+msgid "Укажите e-mail"
+msgstr "Enter e-mail"
+
+#: website/forms.py:74 website/forms.py:81 website/forms.py:165
+#: website/forms.py:172
 msgid "Пожалуйста, укажите e-mail"
 msgstr "Please, specify an e-mail"
 
-#: website/forms.py:64 website/forms.py:70 website/forms.py:152
-#: website/forms.py:158
+#: website/forms.py:76 website/forms.py:82 website/forms.py:167
+#: website/forms.py:173
 msgid "Это не похоже на валидный e-mail"
 msgstr "This doesn't look like a valid e-mail"
 
-#: website/forms.py:66 website/forms.py:71 website/forms.py:154
-#: website/forms.py:159
+#: website/forms.py:78 website/forms.py:83 website/forms.py:169
+#: website/forms.py:174
 msgid "Этот e-mail слишком длинный"
 msgstr "This e-mail is too long"
 
-#: website/forms.py:75 website/forms.py:163
+#: website/forms.py:87 website/forms.py:178
 msgid "Телефон"
 msgstr "Phone"
 
-#: website/forms.py:79 website/forms.py:83 website/forms.py:167
-#: website/forms.py:171
-msgid "Этот телефон слишком длинный"
-msgstr "This phone is too long"
+#: website/forms.py:89 website/forms.py:180
+msgid "Укажите номер телефона"
+msgstr "Enter phone number"
 
-#: website/forms.py:87
+#: website/forms.py:91 website/forms.py:182
+msgid "Этот телефон слишком длинный"
+msgstr "This phone number is too long"
+
+#: website/forms.py:95 website/forms.py:186
+msgid "Это не похоже на корректный номер телефона"
+msgstr "This doesn't look like a valid phone number"
+
+#: website/forms.py:99
 msgid "Комментарий"
 msgstr "Commentary"
 
-#: website/forms.py:91 website/forms.py:96
+#: website/forms.py:101
+msgid "Дополнительный комментарий"
+msgstr "Additional commentary"
+
+#: website/forms.py:103 website/forms.py:108
 msgid "Этот комментарий слишком короткий"
 msgstr "This commentary is too short"
 
-#: website/forms.py:93 website/forms.py:97
+#: website/forms.py:105 website/forms.py:109
 msgid "Этот комментарий слишком длинный"
 msgstr "This commentary is too long"
 
-#: website/forms.py:175
+#: website/forms.py:190
 msgid "Сообщение"
 msgstr "Message"
 
-#: website/forms.py:179
+#: website/forms.py:192
+msgid "Введите сообщение"
+msgstr "Enter message"
+
+#: website/forms.py:194
 msgid "Пожалуйста, оставьте сообщение"
 msgstr "Please, leave a message"
 
-#: website/forms.py:181 website/forms.py:186
+#: website/forms.py:196 website/forms.py:201
 msgid "Это сообщение слишком короткое"
 msgstr "This message is too short"
 
-#: website/forms.py:183 website/forms.py:187
+#: website/forms.py:198 website/forms.py:202
 msgid "Это сообщение слишком длинное"
 msgstr "This message is too long"
 
@@ -118,17 +139,23 @@ msgid ""
 "                © <a href=\"http://gremtech.com.ua\">GremTech</a> R&D "
 "Center, %%s.\n"
 "                Создано c ♥ в <a href=\"http://cheersunlimited.com.ua"
-"\">Cheers</a> Web Production.\n"
+"\" target=\"_blank\">Cheers</a> Web Production.\n"
 "            "
 msgstr ""
 "\n"
 "                © <a href=\"http://gremtech.com.ua\">GremTech</a> R&D "
 "Center, %%s.\n"
 "                Crafted with ♥ by <a href=\"http://cheersunlimited.com.ua"
-"\">Cheers</a> Web Production.\n"
+"\" target=\"_blank\">Cheers</a> Web Production.\n"
 "            "
 
 #: website/templates/website/components/header.html:6
+#: website/templates/website/errors/400.html:4
+#: website/templates/website/errors/403.html:4
+#: website/templates/website/errors/404.html:4
+#: website/templates/website/errors/500.html:4
+#: website/templates/website/errors/old_browser.html:6
+#: website/templates/website/forms/layout.html:6
 #: website/templates/website/index.html:6
 #: website/templates/website/project.html:6
 msgid "GremTech R&D Center"
@@ -146,6 +173,79 @@ msgstr "Projects"
 #: website/templates/website/project.html:36
 msgid "на главную"
 msgstr "to index"
+
+#: website/templates/website/errors/old_browser.html:6
+msgid "Версия браузера устарела"
+msgstr "Browser version is obsolete"
+
+#: website/templates/website/errors/old_browser.html:23
+msgid "поддерживаемые браузеры"
+msgstr "supported browsers"
+
+#: website/templates/website/errors/old_browser.html:25
+msgid ""
+"Стремление компании к совершенству разделяет и наш сайт - поэтому он "
+"поддерживает только последние версии браузеров"
+msgstr ""
+"Our website shares company's striving for perfection - that's why it "
+"supports only the latest browsers"
+
+#: website/templates/website/errors/old_browser.html:34
+#: website/templates/website/errors/old_browser.html:43
+#: website/templates/website/errors/old_browser.html:52
+#: website/templates/website/errors/old_browser.html:61
+msgid "последняя"
+msgstr "latest"
+
+#: website/templates/website/errors/old_browser.html:70
+msgid "с версии 10+"
+msgstr "from 10+"
+
+#: website/templates/website/errors/old_browser.html:76
+msgid "Обновить браузер"
+msgstr "Update browser"
+
+#: website/templates/website/forms/feedback.html:12
+msgid "Connection"
+msgstr ""
+
+#: website/templates/website/forms/feedback.html:21
+msgid "Связь с GremTech"
+msgstr "Connection with GremTech"
+
+#: website/templates/website/forms/feedback.html:26
+msgid "Форма обратной связи"
+msgstr "Feedback form"
+
+#: website/templates/website/forms/feedback.html:46
+msgid "Отправить"
+msgstr "Send"
+
+#: website/templates/website/forms/investment.html:12
+msgid "Part Of It"
+msgstr ""
+
+#: website/templates/website/forms/investment.html:21
+msgid "Инвестиция в проект"
+msgstr "Project investment"
+
+#: website/templates/website/forms/investment.html:26
+msgid "Форма инвестиции"
+msgstr "Investment form"
+
+#: website/templates/website/forms/investment.html:42
+msgid "Выберите проект для инвестиции"
+msgstr "Choose project for investment"
+
+#: website/templates/website/forms/investment.html:64
+#: website/templates/website/index.html:258
+#: website/templates/website/project.html:177
+msgid "Инвестировать"
+msgstr "Invest"
+
+#: website/templates/website/forms/layout.html:19
+msgid "назад"
+msgstr "back"
 
 #: website/templates/website/index.html:54
 msgid "We Are"
@@ -185,11 +285,6 @@ msgstr ""
 msgid "Написать нам"
 msgstr "Write us"
 
-#: website/templates/website/index.html:258
-#: website/templates/website/project.html:177
-msgid "Инвестировать"
-msgstr "Invest"
-
 #: website/templates/website/project.html:70
 msgid "What Is"
 msgstr ""
@@ -206,10 +301,20 @@ msgstr ""
 msgid "Work With Us"
 msgstr ""
 
-#: website/views.py:103 website/views.py:139
-msgid "Valid"
+#: website/views.py:104
+msgid ""
+"Спасибо за предложение! Наш менеджер свяжется с вами в ближайшее время. "
+"Хорошего вам дня!"
 msgstr ""
+"Thank you for your proposal! Our manager will contact you shortly. Have a "
+"nice day!"
 
-#: website/views.py:110 website/views.py:146
-msgid "Invalid"
+#: website/views.py:113 website/views.py:156
+msgid "Пожалуйста, исправьте ошибки, которые возникли при заполнении формы:"
+msgstr "Please, correct errors that occurred during form filling:"
+
+#: website/views.py:147
+msgid ""
+"Спасибо за сообщение! Мы ответим на него в ближайшее время. Хорошего вам дня!"
 msgstr ""
+"Tank you for your feedback! We'll respond to it shortly. Have a nice day!"

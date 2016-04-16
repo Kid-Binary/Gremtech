@@ -1,0 +1,268 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  forms start                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+form{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+input,
+label,
+textarea{
+    font-family: @Roboto;
+    font-size: 1em;
+    color: @black;
+    font-weight: normal;
+    font-style: normal;
+}
+::-webkit-input-placeholder{
+    font-family: @Roboto;
+    font-size: 1em;
+    color: @gray;
+    font-weight: normal;
+    font-style: normal;
+}
+:-moz-placeholder{
+    font-family: @Roboto;
+    font-size: 1em;
+    color: @gray;
+    font-weight: normal;
+    font-style: normal;
+}
+::-moz-placeholder{
+    font-family: @Roboto;
+    font-size: 1em;
+    color: @gray;
+    font-weight: normal;
+    font-style: normal;
+}
+:-ms-input-placeholder{
+    font-family: @Roboto;
+    font-size: 1em;
+    color: @gray;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.field-holder{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"]{
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 43px;
+    text-indent: 20px;
+    background: @white;
+    border-bottom: 2px solid @black;
+    transition: all .25s @easing;
+    overflow: hidden;
+    &:hover,
+    &:focus{
+        border-bottom: 2px solid @gold;
+    }
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+    display: none;
+    & + label,
+    & + label.error + label{
+        display: block;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        overflow: hidden;
+        .check{
+            display: block;
+            width: 60px;
+            height: 60px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            .icon{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                text-align: center;
+                font-size: 1.25em;
+                color: @white;
+                line-height: 66px;
+            }
+            svg{
+                position: absolute;
+                top: 0;
+                left: 0;
+                polygon{
+                    fill: @black;
+                    transition: all .25s @easing;
+                }
+            }
+            &:hover{
+                svg > polygon{
+                    fill: @gold;
+                } 
+            }
+        }
+        & > .title{
+            display: inline-block;
+            padding: 0 20px;
+            line-height: 60px;
+            text-transform: uppercase;
+        }
+    }
+    &:checked + label,
+    &:checked + label.error + label{
+        .check{
+            svg > polygon{ fill: @gold; }
+        }
+    }
+}
+
+textarea{
+    display: block;
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    transition: all .25s @easing;
+    border: 2px solid @black;
+    box-sizing: border-box;
+    resize: none;
+    &:hover,
+    &:focus{
+        border: 2px solid @gold;
+    }
+}
+
+button[type="submit"]{
+    display: block;
+    width: 200px;
+    height: 50px;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+    & > span,
+    & > svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    & > span{
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        font-size: 1em;
+        line-height: 50px;
+        text-transform: uppercase;
+        color: @white;
+    }
+    svg > polygon{
+        fill: @black;
+        transition: all .25s @easing;
+    }
+    &:hover{
+        svg > polygon{ fill: @gold; }
+    }
+}
+
+label.error{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    color: @error;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  forms end                                 */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  response start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#response-holder{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    &.success{
+        p{
+            color: @success;
+            padding-bottom: 20px;
+        }
+    }
+    &.error{
+        & > p{ margin-bottom: 15px; }
+        ul, li{
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        ul{ margin-bottom: 20px; }
+        li{
+            p{
+                padding: 5px 0;
+                span{ color: @error; }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  response end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  loader start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#loader-holder{
+    display: none;
+    width: 100%;
+    height: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: transparent;
+    overflow: hidden;
+    .lane{
+        display: block;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: @gold;
+        animation: loading 2s @easing 0s infinite;
+    }
+    &.active{ display: block; }
+}
+
+@keyframes loading{
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  loader end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

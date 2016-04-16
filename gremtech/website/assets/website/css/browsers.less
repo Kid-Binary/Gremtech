@@ -1,0 +1,152 @@
+@import "components/common.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  browsers start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.browsers-holder{
+    height: 100%;
+    position: relative;
+    background: url("@{images}/hero-bg.jpg") no-repeat 50% 50%;
+    background-size: cover;
+    .inner{
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        & > span,
+        & > h1,
+        & > p{
+            display: block;
+            color: @white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        & > span{
+            font-weight: 300;
+            margin-bottom: 20px;
+            font-size: 1.125em;
+        }
+        & > p{
+            max-width: 600px;
+            margin: -10px auto 0;
+            font-weight: 300;
+        }
+        .browser-list-holder{
+            max-width: 1200px;
+            margin: 80px auto 0;
+            overflow: hidden;
+            .item{
+                width: 20%;
+                float: left;
+                .label.label-squared{
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    span{
+                        font-size: 1.5em;
+                        color: @white;
+                        line-height: 60px;
+                        &:before{ line-height: 60px; }
+                    }
+                    svg > polygon{
+                        fill: fade(@gold, 40%);
+                    }
+                }
+                p{
+                    margin-top: 10px;
+                    color: @white;
+                    text-align: center;
+                }
+            }
+        }
+        .btn{
+            margin: 80px auto 0;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  browsers end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @mobileL{
+    
+    .browsers-holder{
+        .inner{
+            & > span{
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+            & > h1{ font-size: 5.5em; }
+            & > p{
+                max-width: 100%;
+                padding: 0 20px;
+                font-size: .875em;
+            }
+            .browser-list-holder{
+                max-width: 100%;
+                margin: 40px auto 0;
+                text-align: center;
+                overflow: hidden;
+                .item{
+                    display: inline-block;
+                    width: 30%;
+                    float: none;
+                    margin-bottom: 20px;
+                    p{
+                        margin-top: 10px;
+                        color: @white;
+                        text-align: center;
+                    }
+                }
+            }
+            .btn{
+                margin: 40px auto 0;
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .browsers-holder{
+        overflow: hidden;
+        .inner{
+            & > span{
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+            & > h1{ font-size: 4.75em; }
+            & > p{
+                max-width: 100%;
+                padding: 0 20px;
+                font-size: .875em;
+            }
+            .browser-list-holder{
+                max-width: 100%;
+                margin: 40px auto 0;
+                text-align: center;
+                overflow: hidden;
+                .item{
+                    display: inline-block;
+                    width: 30%;
+                    float: none;
+                    margin-bottom: 20px;
+                    p{
+                        font-size: .75em;
+                    }
+                }
+            }
+            .btn{
+                margin: 20px auto 0;
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

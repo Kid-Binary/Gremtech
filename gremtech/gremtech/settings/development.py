@@ -12,9 +12,9 @@ INSTALLED_APPS += [
 
 # Email
 
-EMAIL_HOST = 'mail.ukraine.com.ua'
-EMAIL_HOST_USER = 'webmaster@cheers-development.in.ua'
-EMAIL_HOST_PASSWORD = '53o2yRjv4IKX'
+EMAIL_HOST = '62.205.128.183'
+EMAIL_HOST_USER = 'info@gremtech.com.ua'
+EMAIL_HOST_PASSWORD = '@#MeG@P$sw0rd42'
 
-EMAIL_FROM = 'webmaster@cheers-development.in.ua'
-EMAIL_TO = 'webmaster@cheers-development.in.ua'
+EMAIL_FROM = 'info@gremtech.com.ua'
+EMAIL_TO = 'info@gremtech.com.ua'

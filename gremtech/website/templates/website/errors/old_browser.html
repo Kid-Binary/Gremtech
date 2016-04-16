@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% load staticfiles i18n %}
+
+{% block title %}
+    {% trans 'Версия браузера устарела' %} | {% trans 'GremTech R&D Center' noop %}
+{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    <meta name="robots" content="noindex,nofollow,noarchive">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'website/css/browsers.bundle.min.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <main id="content">
+            <section class="outer browsers-holder">
+                <div class="inner">
+                    <span class="upper-title">{% trans 'поддерживаемые браузеры' %}</span>
+                    <h1>GremTech</h1>
+                    <p>{% trans 'Стремление компании к совершенству разделяет и наш сайт - поэтому он поддерживает только последние версии браузеров' %}</p>
+                    <div class="browser-list-holder">
+                        <div class="item">
+                            <div class="label label-squared">
+                                <span class="icon icon-chrome"></span>
+                                <svg viewBox="0 0 60 60">
+                                    <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                </svg>
+                            </div>
+                            <p>{% trans 'последняя' %}</p>
+                        </div>
+                        <div class="item">
+                            <div class="label label-squared">
+                                <span class="icon icon-firefox"></span>
+                                <svg viewBox="0 0 60 60">
+                                    <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                </svg>
+                            </div>
+                            <p>{% trans 'последняя' %}</p>
+                        </div>
+                        <div class="item">
+                            <div class="label label-squared">
+                                <span class="icon icon-opera"></span>
+                                <svg viewBox="0 0 60 60">
+                                    <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                </svg>
+                            </div>
+                            <p>{% trans 'последняя' %}</p>
+                        </div>
+                        <div class="item">
+                            <div class="label label-squared">
+                                <span class="icon icon-safari"></span>
+                                <svg viewBox="0 0 60 60">
+                                    <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                </svg>
+                            </div>
+                            <p>{% trans 'последняя' %}</p>
+                        </div>
+                        <div class="item">
+                            <div class="label label-squared">
+                                <span class="icon icon-explorer"></span>
+                                <svg viewBox="0 0 60 60">
+                                    <polygon points="0,60 0,10 10,0 60,0 60,50 50,60"></polygon>
+                                </svg>
+                            </div>
+                            <p>{% trans 'с версии 10+' %}</p>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        {% get_current_language as current_language %}
+
+                        <a href="http://{{ current_language }}.brasst.net.ua" target="_blank">{% trans 'Обновить браузер' %}</a>
+                        <svg viewBox="0 0 200 50">
+                            <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "></polygon>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    {% include 'website/components/orientation_widget.html' only %}
+
+{% endblock %}
+
+{% block analytics %}{% endblock %}

@@ -1,15 +1,26 @@
+import datetime
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import RegexValidator
 
 from .services.mailer import MailerMixin
 from .models import Project
 
+datetime_format = '%d-%m-%Y %H:%M'
+
+
+class ProjectChoiceField(forms.ModelChoiceField):
+
+    def label_from_instance(self, obj):
+        return _("Проект %s") % obj.title
+
 
 class InvestmentForm(MailerMixin, forms.Form):
 
-    project = forms.ModelChoiceField(
+    project = ProjectChoiceField(
         queryset=Project.objects.all(),
-        empty_label=_('-'),
+        empty_label=None,
         widget=forms.RadioSelect,
     )
     name = forms.CharField(
@@ -17,10 +28,11 @@ class InvestmentForm(MailerMixin, forms.Form):
     )
     email = forms.EmailField(max_length=254,)
     phone = forms.CharField(
-        max_length=19, required=False,
+        required=False,
+        validators=[RegexValidator(regex='^.{19}$', code='invalid')]
     )
     comment = forms.CharField(
-        min_length=5, max_length=500, required=False, widget=forms.Textarea,
+        min_length=5, max_length=1000, required=False, widget=forms.Textarea,
     )
 
     def __init__(self, *args, **kwargs):
@@ -40,7 +52,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # Name
         self.fields['name'].label = _('Имя')
         self.fields['name'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Введите имя'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, введите имя'),
             'data-rule-minlength': 2,
@@ -57,7 +69,7 @@ class InvestmentForm(MailerMixin, forms.Form):
         # E-mail
         self.fields['email'].label = _('E-mail')
         self.fields['email'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Укажите e-mail'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, укажите e-mail'),
             'data-rule-email': 'true',
@@ -74,22 +86,22 @@ class InvestmentForm(MailerMixin, forms.Form):
         # Phone
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Укажите номер телефона'),
             'data-rule-maxlength': 19,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
-            'data-mask': '+380 (99) 999-9999',
+            'data-mask': '+380 (99) 999-99-99',
         }
         self.fields['phone'].error_messages = {
-            'max_length': _('Этот телефон слишком длинный'),
+            'invalid': _('Это не похоже на корректный номер телефона'),
         }
 
         # Comment
         self.fields['comment'].label = _('Комментарий')
         self.fields['comment'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Дополнительный комментарий'),
             'data-rule-minlength': 5,
             'data-msg-minlength': _('Этот комментарий слишком короткий'),
-            'data-rule-maxlength': 500,
+            'data-rule-maxlength': 1000,
             'data-msg-maxlength': _('Этот комментарий слишком длинный'),
         }
         self.fields['comment'].error_messages = {
@@ -98,7 +110,9 @@ class InvestmentForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
-        subject = _('-')
+        now = datetime.datetime.now().strftime(datetime_format)
+
+        subject = 'Предложение инвестиции, ' + now
         template = 'website/emails/investment.html'
         context = {
             'project': self.cleaned_data['project'],
@@ -116,10 +130,11 @@ class FeedbackForm(MailerMixin, forms.Form):
     name = forms.CharField(min_length=2, max_length=250,)
     email = forms.EmailField(max_length=254,)
     phone = forms.CharField(
-        max_length=19, required=False,
+        required=False,
+        validators=[RegexValidator(regex='^.{19}$', code='invalid')]
     )
     message = forms.CharField(
-        min_length=5, max_length=500, widget=forms.Textarea,
+        min_length=5, max_length=1000, widget=forms.Textarea,
     )
 
     def __init__(self, *args, **kwargs):
@@ -128,7 +143,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # Name
         self.fields['name'].label = _('Имя')
         self.fields['name'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Введите имя'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, введите имя'),
             'data-rule-minlength': 2,
@@ -145,7 +160,7 @@ class FeedbackForm(MailerMixin, forms.Form):
         # E-mail
         self.fields['email'].label = _('E-mail')
         self.fields['email'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Укажите e-mail'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, укажите e-mail'),
             'data-rule-email': 'true',
@@ -162,24 +177,24 @@ class FeedbackForm(MailerMixin, forms.Form):
         # Phone
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Укажите номер телефона'),
             'data-rule-maxlength': 19,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
-            'data-mask': '+380 (99) 999-9999',
+            'data-mask': '+380 (99) 999-99-99',
         }
         self.fields['phone'].error_messages = {
-            'max_length': _('Этот телефон слишком длинный'),
+            'invalid': _('Это не похоже на корректный номер телефона'),
         }
 
         # Message
         self.fields['message'].label = _('Сообщение')
         self.fields['message'].widget.attrs = {
-            'placeholder': _('-'),
+            'placeholder': _('Введите сообщение'),
             'data-rule-required': 'true',
             'data-msg-required': _('Пожалуйста, оставьте сообщение'),
             'data-rule-minlength': 5,
             'data-msg-minlength': _('Это сообщение слишком короткое'),
-            'data-rule-maxlength': 500,
+            'data-rule-maxlength': 1000,
             'data-msg-maxlength': _('Это сообщение слишком длинное'),
         }
         self.fields['message'].error_messages = {
@@ -188,7 +203,9 @@ class FeedbackForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
-        subject = _('-')
+        now = datetime.datetime.now().strftime(datetime_format)
+
+        subject = 'Сообщение обратной связи, ' + now
         template = 'website/emails/feedback.html'
         context = {
             'name': self.cleaned_data['name'],

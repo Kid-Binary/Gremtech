@@ -9,10 +9,11 @@ class MailerMixin():
     _email_to = settings.EMAIL_TO
 
     def send_email(self, subject, template, context):
-        html = render_to_string(template, context)
+        email_html = render_to_string(template, context)
+        email_from = 'GremTech Website <%s>' % self._email_from
 
         message = EmailMessage(
-            subject, html, self._email_from, [self._email_to]
+            subject, email_html, email_from, [self._email_to]
         )
 
         message.content_subtype = 'html'

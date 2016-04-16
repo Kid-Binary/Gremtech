@@ -1,0 +1,286 @@
+@import "components/common.less";
+@import "components/forms.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page,
+#content{
+    height: auto;
+    background: @white;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#header{
+    .back-holder{
+        display: inline-block;
+        margin: 40px 0 0 0;
+        float: left;
+        a{
+            display: inline-block;
+            line-height: 45px;
+            padding: 0 40px;
+            text-transform: uppercase;
+            color: @black;
+            transition: all .25s @easing 0s;
+            .arrow-left{
+                display: inline-block;
+                vertical-align: middle;
+                width: 8px;
+                height: 12px;
+                margin-right: 10px;
+                &:before{
+                    display: block;
+                    border-top: 6px solid transparent;
+                    border-bottom: 6px solid transparent;
+                    border-right: 8px solid @black;
+                    margin-top: -2px;
+                    content: "";
+                    transition: all .25s @easing 0s;
+                }
+            }
+            &:hover{
+                color: @gold;
+                .arrow-left:before{
+                    border-right: 8px solid @gold;
+                }
+            }
+        }
+    }
+}
+#langs-holder{
+    width: 155px;
+    position: relative;
+    top: auto;
+    right: auto;
+    float: right;
+    margin: 40px 40px 0 0;
+    .btn-squared{
+        float: left;
+        margin: 0 10px 0 0;
+        &:last-child{ margin: 0; }
+        svg > polygon{
+            fill: @black;
+        }
+        &:hover,
+        &.active{
+            svg > polygon{
+                fill: @gold;
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  investment start                          */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.investment-holder{
+    background: @white;
+    .inner{
+        .info-holder{
+            width: 100%;
+            height: auto;
+            position: relative;
+            .corner{
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .label{
+                position: absolute;
+                top: 40px;
+                left: -80px;
+                span{ color: @gold; }
+                svg > polygon{
+                    fill: @black;
+                }
+            }
+            h1{
+                font-size: 2.25em;
+                text-align: left;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 125px 80px 0;
+            }
+            form{
+                margin-top: 40px;
+                padding: 0 80px;
+                box-sizing: border-box;
+                .field-holder{
+                    margin-bottom: 20px;
+                    textarea{ margin-top: 20px; }
+                }
+                & > p{
+                    font-size: 1.125em;
+                    padding: 20px 0;
+                    text-align: left;
+                    text-transform: uppercase;
+                }
+                input[type="radio"],
+                input[type="checkbox"]{
+                    & + label.error{
+                        margin: 0 0 10px 0;
+                    }
+                }
+                button[type="submit"]{
+                    margin: 40px auto 80px;
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  investment end                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+
+    .investment-holder{
+        .inner{
+            .info-holder{
+                .label{
+                    top: 0;
+                    left: auto;
+                    right: 0;
+                }
+                h1{ padding: 60px 40px 0; }
+                form{
+                    margin-top: 20px;
+                    padding: 0 40px;
+                    input[type="radio"],
+                    input[type="checkbox"]{
+                        & + label,
+                        & + label.error + label{
+                            .check{
+                                width: 40px;
+                                height: 40px;
+                                .icon{
+                                    font-size: 1em;
+                                    line-height: 46px;
+                                }
+                            }
+                            .title{ line-height: 40px; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileL{
+    
+    #header{
+        .back-holder{
+            margin: 40px 0 0 0;
+            a{
+                padding: 0 20px;
+                line-height: 30px;
+            }
+        }
+    }
+    #langs-holder{
+        width: 110px;
+        margin: 40px 20px 0 0;
+        .btn-squared{
+            margin: 0 0 0 10px;
+            &:last-child{ margin: 0 0 0 10px; }
+            a{ color: @black; }
+            &:hover,
+            &.active{
+                a{ color: @gold; }
+            }
+        }
+    }
+    
+    .investment-holder{
+        .bg-title-holder{ padding-top: 40px; }
+        .inner{
+            padding-top: 120px;
+            .info-holder{
+                h1{
+                    padding: 40px 40px 0;
+                    font-size: 1.5em;
+                }
+                form{
+                    margin-top: 10px;
+                    .field-holder{
+                        input[type="radio"],
+                        input[type="checkbox"]{
+                            & + label,
+                            & + label.error + label{
+                                .title{
+                                    font-size: .875em;
+                                }
+                            }
+                        }
+                    }
+                    button[type="submit"]{
+                        width: 160px;
+                        height: 40px;
+                        span{
+                            font-size: .875em;
+                            line-height: 40px;
+                        }
+                    }
+                    & > p{ font-size: 1em; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .investment-holder{
+        .bg-title-holder{ padding-top: 40px; }
+        .inner{
+            padding-top: 90px;
+            .info-holder{
+                .corner{ display: none; }
+                .label{
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                }
+                h1{
+                    padding: 20px 0 0;
+                    font-size: 1.5em;
+                }
+                form{
+                    padding: 0;
+                    .field-holder{
+                        input[type="radio"],
+                        input[type="checkbox"]{
+                            & + label,
+                            & + label.error + label{
+                                .title{
+                                    font-size: .875em;
+                                }
+                            }
+                        }
+                        textarea{ margin-top: 0; }
+                    }
+                    & > p{ padding-top: 0; }
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
