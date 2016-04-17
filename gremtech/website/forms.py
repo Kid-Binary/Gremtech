@@ -34,6 +34,9 @@ class InvestmentForm(MailerMixin, forms.Form):
     comment = forms.CharField(
         min_length=5, max_length=1000, required=False, widget=forms.Textarea,
     )
+    honeypot = forms.CharField(
+        required=False, widget=forms.TextInput(attrs={'style': 'display:none'})
+    )
 
     def __init__(self, *args, **kwargs):
         super(InvestmentForm, self).__init__(*args, **kwargs)
@@ -110,6 +113,10 @@ class InvestmentForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
+        # Do not send an email if spam bot is detected
+        if self.cleaned_data['honeypot']:
+            return False
+
         now = datetime.datetime.now().strftime(datetime_format)
 
         subject = 'Предложение инвестиции, ' + now
@@ -135,6 +142,9 @@ class FeedbackForm(MailerMixin, forms.Form):
     )
     message = forms.CharField(
         min_length=5, max_length=1000, widget=forms.Textarea,
+    )
+    honeypot = forms.CharField(
+        required=False, widget=forms.TextInput(attrs={'style': 'display:none'})
     )
 
     def __init__(self, *args, **kwargs):
@@ -203,6 +213,10 @@ class FeedbackForm(MailerMixin, forms.Form):
         }
 
     def send_email(self):
+        # Do not send an email if spam bot is detected
+        if self.cleaned_data['honeypot']:
+            return False
+
         now = datetime.datetime.now().strftime(datetime_format)
 
         subject = 'Сообщение обратной связи, ' + now
