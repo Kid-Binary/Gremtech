@@ -283,8 +283,9 @@ class Number(models.Model, metaclass=TransMeta):
 
 
 class Contact(models.Model):
-    email_first = models.EmailField(max_length=254)
-    email_second = models.EmailField(max_length=254)
+    phone_first = models.CharField('Телефон', max_length=19)
+    email_first = models.EmailField('E-mail #1', max_length=254)
+    email_second = models.EmailField('E-mail #2', max_length=254)
 
     class Meta:
         order_prefix = ' ' * 1

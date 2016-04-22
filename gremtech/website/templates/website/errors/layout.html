@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'website/css/notfound.bundle.min.css' %}">
 {% endblock %}
 
+{% block analytics %}{% endblock %}
+
 {% block body %}
     <div id="page">
         <main id="content">
@@ -32,5 +34,3 @@
     {% include 'website/components/orientation_widget.html' only %}
 
 {% endblock %}
-
-{% block analytics %}{% endblock %}

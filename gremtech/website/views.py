@@ -90,7 +90,7 @@ def investment(request):
     """
     Investment
     """
-    form = InvestmentForm
+    form = InvestmentForm(request=request)
 
     return render(request, 'website/forms/investment.html', {
         'form': form
@@ -99,7 +99,7 @@ def investment(request):
 
 def investment_send(request):
     if request.method == 'POST' and request.is_ajax():
-        form = InvestmentForm(request.POST)
+        form = InvestmentForm(request.POST, request=request)
 
         if form.is_valid():
             form.send_email()
@@ -133,7 +133,7 @@ def feedback(request):
     """
     Feedback
     """
-    form = FeedbackForm
+    form = FeedbackForm(request=request)
 
     return render(request, 'website/forms/feedback.html', {
         'form': form
@@ -142,7 +142,7 @@ def feedback(request):
 
 def feedback_send(request):
     if request.method == 'POST' and request.is_ajax():
-        form = FeedbackForm(request.POST)
+        form = FeedbackForm(request.POST, request=request)
 
         if form.is_valid():
             form.send_email()

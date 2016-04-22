@@ -12,7 +12,7 @@ class Loader{
 
         window.setTimeout(function(){
             $("body").addClass("__loaded");
-        }, 3000);
+        }, 2000);
 
         window.setTimeout(function(){
             window.scrollTo(0, 0);

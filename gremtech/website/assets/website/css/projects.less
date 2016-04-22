@@ -6,6 +6,9 @@
     height: 100%;
     background: url("@{images}/hero-bg.jpg") no-repeat 50% 50% fixed;
     background-size: cover;
+    /* kidbin, 20.04.2016, 12:04 */
+    overflow: hidden;
+    /* END kidbin, 20.04.2016, 12:04 */
     .inner{
         position: absolute;
         top: 55%;
@@ -88,18 +91,18 @@
 .v-reflection .hero-holder{
     .lowpoly-holder{
         width: 22%;
-        left: 0%;
+        left: -2%;
         transform: translateX(0%) translateY(-50%);
         &.right{
             top: 60%;
             left: auto;
-            right: 0;
+            right: -2%;
         }
     }
 }
 .telekinez-sys .hero-holder{
     .lowpoly-holder{
-        top: 36%;
+        top: 40%;
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -514,8 +517,26 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @notebook{
+
+    .v-touch .hero-holder{
+        .lowpoly-holder{
+            width: 340px;
+            top: 38%;
+        }
+    }
+
+    .telekinez-sys .hero-holder{
+        .lowpoly-holder{
+            width: 300px;
+            top: 36%;
+        }
+    }
+
+}
+
 @media only screen and @tablet{
-    
+
     .bg-title-holder > span{ font-size: 8em; }
 
     .hero-holder{
@@ -580,7 +601,7 @@
             }
         }
     }
-    
+
     .market-scope-holder{
         .inner{
             .desc-holder{
@@ -611,127 +632,91 @@
 }
 
 @media only screen and @mobileL{
-    
-    .bg-title-holder > span{ font-size: 4em; }
 
     .hero-holder{
-        .inner{
-            top: 50%;
-            h1{
-                font-size: 5.5em;
-                line-height: 90px;
-            }
-            p{
-                font-size: .875em;
-                padding: 0 20px;
-            }
-        }
         .lowpoly-holder{ display: none; }
-        .corner{
-            .lane{ width: 40px; }
-        }
     }
 
     .about-holder{
         .inner{
             .info-holder{
-                .corner{ display: none; }
-                h2{
-                    font-size: 1.5em;
-                    padding: 50px 20px 10px;
+                .corner{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 }
-                p{ padding: 0 20px; }
-                .progress-holder{ margin-top: 20px; }
-            }
-        }
-    }
-
-    .market-scope-holder{
-        .inner{
-            .desc-holder{
-                width: 100%;
-                margin-left: 0;
-            }
-            .list-holder{
-                display: block;
-                width: 100%;
-                margin: 40px 0 0;
-                li{
-                    height: 60px;
-                    .num-holder{ display: none; }
-                    p{
-                        font-size: 1em;
-                        line-height: 60px;
-                        margin: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    .contact-holder{
-        .inner{
-            h2{
-                font-size: 1.5em;
-                padding: 0 20px 10px;
-            }
-            p{ padding: 0; }
-            .buttons-holder{
-                width: 340px;
-                .btn{ margin-right: 20px; }
-            }
-        }
-    }
-    
-}
-
-@media only screen and @mobileS{
-
-    .hero-holder{
-        .inner{
-            top: 55%;
-            .upperline{ display: none; }
-            h1{
-                padding-top: 20px;
-                font-size: 4.75em;
-                line-height: 80px;
-            }
-            .switch-project-holder{ margin-top: 20px; }
-            .back-holder{ margin-top: 10px; }
-        }
-        .corner{ display: none; }
-    }
-    
-    .about-holder{
-        .inner{
-            .info-holder{
-                .corner{ display: none; }
                 .label{
-                    position: relative;
-                    top: auto;
+                    position: absolute;
+                    top: 0;
                     left: auto;
+                    right: 0;
                 }
-                h2{ padding: 20px 0 10px; }
-                p{ padding: 0; }
-                .progress-holder{
+                h2{ padding: 40px 40px 0; }
+                p{ padding: 20px 40px; }
+            }
+        }
+    }
+
+    .functionality-holder{
+        .bg-title-holder{
+            span{ text-align: right; }
+            overflow: hidden;
+        }
+        .inner{
+            .desc-holder{
+                width: 100%;
+                margin-top: 40px;
+            }
+            .items-holder{
+                width: 100%;
+                height: auto;
+                margin: 40px auto 0;
+                overflow: hidden;
+                .item{
                     width: 100%;
-                    height: 40px;
+                    height: auto;
+                    padding-top: 0;
                     float: none;
-                    margin-bottom: 20px;
-                    p{
-                        font-size: .875em;
-                        line-height: 20px;
+                    margin-right: 0;
+                    background: @black;
+                    &:before{
+                        display: none;
+                    }
+                    .info{
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        transform: translateY(0);
+                        .num-holder{
+                            width: 30px;
+                            height: 30px;
+                            margin: 20px auto 10px;
+                            span{ line-height: 30px; }
+                            svg > polygon{ stroke: @gold; }
+                        }
+                        p{
+                            min-height: 20px;
+                            padding: 0 20px 20px;
+                        }
+                    }
+                    &.active{
+                        .num-holder svg > polygon{ fill: @gold; }
                     }
                 }
             }
         }
     }
-    
+
     .market-scope-holder{
+        .bg-title-holder{
+            span{ font-size: 6.75em; }
+            overflow: hidden;
+        }
         .inner{
             .desc-holder{
                 width: 100%;
                 margin-left: 0;
+                .upperline{ margin: 20px 0; }
             }
             .list-holder{
                 display: block;
@@ -739,24 +724,47 @@
                 margin: 40px 0 0;
                 li{
                     height: auto;
+                    background: @black;
                     margin-bottom: 20px;
-                    text-align: center;
+                    overflow: hidden;
                     &:after{ display: none; }
                     .num-holder{
-                        display: block;
+                        width: 30px;
+                        height: 30px;
                         position: relative;
-                        top: 0;
-                        left: 0;
-                        margin: 0 auto;
+                        top: auto;
+                        left: auto;
+                        margin: 20px auto 10px;
+                        span{
+                            line-height: 30px;
+                            color: @white;
+                        }
+                        svg > polygon{ stroke: @gold; }
                     }
                     p{
-                        font-size: .875em;
-                        line-height: 16px;
-                        margin: 0;
-                        padding: 10px 20px 0;
+                        display: block;
+                        font-size: 1em;
                         text-align: center;
+                        margin: 0;
+                        line-height: 20px;
                         color: @gold;
+                        padding: 0 0 20px;
+                        position: relative;
                         &:before{ display: none; }
+                    }
+                    &.active{
+                        &:before,
+                        &:after{
+                            width: 100%;
+                        }
+                        .num-holder{
+                            span{ opacity: 1; }
+                            svg > polygon{
+                                fill: @gold;
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                        p:before{ width: 100%; }
                     }
                 }
             }
@@ -764,16 +772,172 @@
     }
 
     .contact-holder{
+        .bg-title-holder{
+            span{
+                font-size: 6.75em;
+                text-align: right;
+            }
+        }
         .inner{
+            .upperline{
+                display: block;
+                width: 80px;
+                height: 2px;
+                background: @black;
+                margin: 0 auto 20px;
+                overflow: hidden;
+            }
+            h2{
+                font-size: 2.25em;
+                text-align: center;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            p{
+                text-align: center;
+                padding: 20px 0 0;
+            }
             .buttons-holder{
-                width: 100%;
-                margin: 20px 0 40px;
+                width: 380px;
+                margin: 40px auto 80px;
+                overflow: hidden;
                 .btn{
-                    float: none;
-                    margin: 0 auto 10px;
-                    &:last-child{ margin: 0 auto; }
+                    margin-right: 20px;
                 }
             }
+        }
+    }
+
+}
+
+@media only screen and @mobileM{
+
+    .hero-holder{
+        .inner{
+            top: 50%;
+            .upperline{ display: none; }
+            h1{
+                font-size: 4.5em;
+                line-height: 80px;
+            }
+            p{
+                font-size: .875em;
+                padding: 0 40px;
+            }
+            .back-holder{
+                width: 220px;
+                margin: 10px auto 0;
+            }
+        }
+        .corner{
+            width: 40px;
+            height: 40px;
+            right: 40px;
+            bottom: 40px;
+        }
+        .arrow-holder{
+            width: 12px;
+            height: 8px;
+            margin-left: -6px;
+            .arrow-down{
+                border-right: 6px solid transparent;
+                border-left: 6px solid transparent;
+                border-top: 8px solid @white;
+            }
+        }
+    }
+
+    .about-holder{
+        .inner{
+            .info-holder{
+                .corner{
+                   display: none;
+                }
+                .label{
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                }
+                h2{
+                    font-size: 1.75em;
+                    padding: 20px 0 10px;
+                }
+                p{ padding: 0; }
+                .progress-holder{
+                    width: 100%;
+                    height: auto;
+                    float: none;
+                    margin-top: 20px;
+                    & > p{ font-size: .875em; }
+                    .progress{
+                        height: 6px;
+                        border: 1px solid @black;
+                        & > .progress-bar{
+                            height: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .functionality-holder{
+        .inner{
+            .desc-holder{
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .market-scope-holder{
+        .inner .list-holder li p{ font-size: .875em; }
+    }
+
+    .contact-holder{
+        .inner{
+            .upperline{
+                width: 40px;
+            }
+            h2{
+                font-size: 1.75em;
+            }
+            p{
+                padding: 10px 0 0;
+            }
+            .buttons-holder{
+                width: 160px;
+                margin: 20px auto 40px;
+                overflow: hidden;
+                .btn{
+                    margin: 0 0 10px 0;
+                    &:last-child{ margin: 0; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .hero-holder{
+        .inner{
+            h1{
+                font-size: 3.5em;
+                line-height: 60px;
+            }
+            p{ font-size: .75em; }
+        }
+    }
+
+    .about-holder{
+        .inner .info-holder h2{ font-size: 1.5em; }
+    }
+
+    .contact-holder{
+        .inner{
+            h2{ font-size: 1.5em; }
+            .buttons-holder{ width: 160px; }
         }
     }
 

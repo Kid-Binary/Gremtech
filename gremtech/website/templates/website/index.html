@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% load staticfiles i18n %}
+{% load staticfiles i18n website_helpers %}
 
 {% block title %}
     {% trans 'GremTech R&D Center' noop %} | {{ METADATA.title }}
@@ -265,6 +265,7 @@
 			</section>
 			<div id="footer">
 				<span class="upperline"></span>
+                <a href="tel:+{{ contact.phone_first|sift_digits }}">{{ contact.phone_first }}</a>
 				<a href="mailto:{{ contact.email_first }}">{{ contact.email_first }}</a>
 				<a href="mailto:{{ contact.email_second }}">{{ contact.email_second }}</a>
 

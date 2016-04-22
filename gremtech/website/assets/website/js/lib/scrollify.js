@@ -16,14 +16,13 @@ class Scrollify{
     }
     _events(){
         $(document).on("scroll", (e) => { this._handleScroll(e) });
+        $(window).on("resize", (e) => { this._handleResize(e) });
     }
     setElData(){
         for(let el of elements){
             el = $(el);
 
             elData.push({
-                shift: 0,
-                diff: 0,
                 offset: el.offset(),
                 speed: el.data("speed")
             });
@@ -34,11 +33,14 @@ class Scrollify{
 
         elements.each((index, el) => {
             let data = elData[index];
+            let scrollDiff = this.getScrollDiff(data.offset.top);
+            let scrollShift = 0;
 
-            data.diff = this.getScrollDiff(data.offset.top);
-            data.shift = this.getScrollShift(data.diff, data.speed);
-
-            this.applyShift(el, data.shift);
+            if(scrollDiff >= 0){
+                scrollShift = this.getScrollShift(scrollDiff, data.speed);
+                this.applyShift(el, scrollShift);
+            }
+            
         }); 
 
         return false;
@@ -51,6 +53,12 @@ class Scrollify{
     }
     applyShift(el, shift){
         $(el).css({transform: "translate3d(0, "+ shift +"px, 0)"});
+    }
+    _handleResize(e){
+        this._scrollY = 0;
+        this.setElData();
+
+        return false;
     }
 }
 

@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 
-{% load staticfiles i18n %}
+{% load staticfiles i18n website_helpers %}
 
 {% block title %}
     {{ project.title }} - {{ METADATA.title }} | {% trans 'GremTech R&D Center' noop %}
@@ -39,18 +39,18 @@
 
                 {% if project.visual_class == 'v-touch' %}
                     <div class="lowpoly-holder">
-                        <img src="{% static 'website/images/hand-bg.png' %}" alt="{{ project.title }}">
+                        <img src="{% static 'website/images/hand-gold.png' %}" alt="{{ project.title }}">
                     </div>
                 {% elif project.visual_class == 'v-reflection' %}
                     <div class="lowpoly-holder left">
-                        <img src="{% static 'website/images/arm-left-bg.png' %}" alt="{{ project.title }}">
+                        <img src="{% static 'website/images/arm-left-gold.png' %}" alt="{{ project.title }}">
                     </div>
                     <div class="lowpoly-holder right">
-                        <img src="{% static 'website/images/arm-right-bg.png' %}" alt="{{ project.title }}">
+                        <img src="{% static 'website/images/arm-right-gold.png' %}" alt="{{ project.title }}">
                     </div>
                 {% elif project.visual_class == 'telekinez-sys' %}
                     <div class="lowpoly-holder">
-                        <img src="{% static 'website/images/head-bg.png' %}" alt="{{ project.title }}">
+                        <img src="{% static 'website/images/head-gold.png' %}" alt="{{ project.title }}">
                     </div>
                 {% endif %}
 
@@ -184,6 +184,7 @@
             </section>
             <div id="footer">
                 <span class="upperline"></span>
+                <a href="tel:+{{ contact.phone_first|sift_digits }}">{{ contact.phone_first }}</a>
                 <a href="mailto:{{ contact.email_first }}">{{ contact.email_first }}</a>
 				<a href="mailto:{{ contact.email_second }}">{{ contact.email_second }}</a>
 

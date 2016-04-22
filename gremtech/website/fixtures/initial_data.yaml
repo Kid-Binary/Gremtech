@@ -412,7 +412,7 @@
     fields:
         visual_class: v-touch
         icon: icon-hand
-        image: hand.png
+        image: hand-gold.png
         title_ru: V-Touch
         intro_phrase_ru: Технология создания кибернетической перчатки
         description_short_ru: >
@@ -433,7 +433,7 @@
     fields:
         visual_class: v-reflection
         icon: icon-arm
-        image: arm.png
+        image: arm-left-gold.png
         title_ru: V-Reflection
         intro_phrase_ru: Технология создания антопоморфной роботизированной руки
         description_short_ru: >
@@ -454,7 +454,7 @@
     fields:
         visual_class: telekinez-sys
         icon: icon-brain
-        image: head.png
+        image: head-gold.png
         title_ru: Telekinez-SYS
         intro_phrase_ru: Технология системы телеприсутствия и телеучастия
         description_short_ru: >
@@ -635,5 +635,6 @@
 -   model: website.Contact
     pk: 1
     fields:
+        phone_first: +380 (93) 514-14-85
         email_first: sales.gremtech@gmail.com
         email_second: support.gremtech@gmail.com

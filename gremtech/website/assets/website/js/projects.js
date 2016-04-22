@@ -1,6 +1,7 @@
 "use strict";
 
 import "jquery";
+import isMobile from "./lib/isMobile";
 import Loader from "./lib/loader";
 import setProgressPercents from "./lib/setProgressPercents";
 import Scrollify from "./lib/scrollify";

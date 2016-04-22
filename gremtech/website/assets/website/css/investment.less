@@ -185,17 +185,20 @@
         .back-holder{
             margin: 40px 0 0 0;
             a{
-                padding: 0 20px;
+                padding: 0 40px;
                 line-height: 30px;
             }
         }
     }
     #langs-holder{
         width: 110px;
-        margin: 40px 20px 0 0;
+        margin: 40px 40px 0 0;
         .btn-squared{
-            margin: 0 0 0 10px;
-            &:last-child{ margin: 0 0 0 10px; }
+            width: 30px;
+            height: 30px;
+            margin: 0 10px 0 0;
+            &:first-child{ margin: 0px 10px 0 0; }
+            &:last-child{ margin: 0; }
             a{ color: @black; }
             &:hover,
             &.active{
@@ -242,7 +245,7 @@
 
 }
 
-@media only screen and @mobileS{
+@media only screen and @mobileM{
 
     .investment-holder{
         .bg-title-holder{ padding-top: 40px; }

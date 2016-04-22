@@ -368,7 +368,6 @@ body,
 /*  preloader start                           */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #preloader-holder{
-    display: block;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -377,7 +376,7 @@ body,
     z-index: 100;
     background: @black;
     opacity: 1;
-    transition: all 1s @easing 1s;
+    transition: all .5s @easing .5s;
     visibility: visible;
     overflow: hidden;
     .loader{
@@ -387,15 +386,15 @@ body,
         top: 50%;
         left: 50%;
         margin: -88px 0 0 -126px;
-         opacity: 1;
-         transition: all .5s @easing .5s;
+        opacity: 1;
+        transition: all .25s @easing .25s;
         .logo-part{
             fill: transparent;
             stroke-width: .25px;
             stroke: @gold;
             stroke-dasharray: 800px 800px;
             stroke-dashoffset: 800px;
-            animation: dashFill 3s @easing 0s 1 forwards;
+            animation: dashFill 2s @easing 0s 1 forwards;
         }
     }
 }
@@ -487,7 +486,7 @@ body,
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #footer{
     width: 100%;
-    height: 240px;
+    height: 260px;
     background: url("@{images}/bg-logos.png") no-repeat -15% -600px, url("@{images}/bg-logos.png") no-repeat 112% -120px @black;
     background-size: 500px auto, 500px auto;
     position: relative;
@@ -611,34 +610,48 @@ body,
 
 @media only screen and @mobileL{
 
+    .inner{ padding: 80px 40px 0; }
+
     .bg-title-holder{
         & > span{
+            padding: 40px 40px 0;
             font-size: 7.5em;
         }
     }
+    
+    .numbers-holder{ display: none; }
 
-    #preloader-holder{
-        .loader{
-            width: 160px;
-            height: 112px;
-            margin: -56px 0 0 -80px;
+    #footer{
+        height: auto;
+        background: @black;
+        .upperline{
+            width: 40px;
+            margin: 20px auto;
+        }
+        footer{
+            position: relative;
+            left: auto;
+            bottom: auto;
+            margin: 20px 0 10px;
         }
     }
 
 }
 
 @media only screen and @mobileM{
-    
-    p, a{ font-size: .875em; }
 
-    .inner{ padding: 80px 20px 0; }
+    h1{ font-size: 5.5em; }
+
+    .inner{ padding: 40px 40px 0; }
+
+    .bg-title-holder{ display: none; }
 
     #header{
         .logo{
-            width: 80px;
+            width: 90px;
             margin: 40px 0 0 40px;
             a{
-                width: 80px;
+                width: 90px;
                 height: auto;
             }
         }
@@ -646,73 +659,60 @@ body,
     
     #langs-holder{
         width: 110px;
+        height: auto;
+        position: absolute;
         top: 40px;
         right: 40px;
         .btn-squared{
             width: 30px;
             height: 30px;
-            float: left;
             margin: 0 0 0 10px;
+            float: left;
             &:first-child{ margin: 0; }
-            a{
-                font-size: 1em;
-                line-height: 30px;
+            a{ line-height: 30px; }
+            svg > polygon{ display: none; }
+            &.active{
+                a{ color: @gold; }
             }
-            svg{ display: none; }
         }
     }
-    
+
     #social-holder{
         width: 30px;
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        z-index: 10;
         .btn-squared{
             width: 30px;
             height: 30px;
-            a{
-                font-size: 1.25em;
-                line-height: 30px;
-                &:before{
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            }
-            svg{ display: none; }
-        }
-    }
-
-    .switch-project-holder{
-        width: 170px;
-        margin: 40px auto 0;
-        .label.label-small{
-            width: 100%;
-            height: 35px;
-            margin-bottom: 10px;
-            span{ line-height: 35px; }
-        }
-        .btn.btn-squared{
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            a{ line-height: 47px; }
+            a{ line-height: 30px; }
+            svg > polygon{ display: none; }
         }
     }
     
-    .numbers-holder{
-        width: 280px;
-        .item{
-            width: 80px;
-            margin-right: 20px;
-            .lane{
-                width: 20px;
-                margin-bottom: 10px;
+    .switch-project-holder{
+        width: 155px;
+        margin: 40px auto 0;
+        .label-small{
+            width: 155px;
+            height: 30px;
+            margin-bottom: 10px;
+            span{
+                font-size: .875em;
+                line-height: 30px;
             }
-            .number{ font-size: 3.5em; }
         }
-    }
-
-    .bg-title-holder{
-        & > span{
-            padding: 40px 20px 0;
-            font-size: 4.75em;
+        .btn.btn-squared{
+            width: 45px;
+            height: 45px;
+            float: left;
+            margin-right: 10px;
+            &:last-child{ margin-right: 0; }
+            a{
+                font-size: 1.125em;
+                line-height: 45px;
+            }
         }
     }
     
@@ -720,10 +720,7 @@ body,
         width: 160px;
         height: 40px;
         & > span,
-        & > a{
-            font-size: .875em;
-            line-height: 40px;
-        }
+        & > a{ line-height: 44px; }
     }
 
     .label{
@@ -735,81 +732,28 @@ body,
             line-height: 30px;
         }
     }
-    
-    #footer{
-        height: 200px;
-        background: @black;
-        .upperline{
-            margin-top: 40px;
+
+    #preloader-holder{
+        .loader{
+            width: 180px;
+            height: 126px;
+            margin: -63px 0 0 -90px;
         }
     }
 
 }
 
-
 @media only screen and @mobileS{
 
-    .inner{ padding: 40px 20px 0; }
+    h1{ font-size: 5em; }
     
     #header{
-        .logo{
-            margin: 60px auto 0;
-            float: none;
-        }
-    }
-
-    #langs-holder{
-        width: 90px;
-        top: 20px;
-        right: 20px;
-        .btn-squared{
-            margin: 0;
-            a{ font-size: .875em; }
-        }
-    }
-
-    #social-holder{
-        width: 60px;
-        top: 20px;
-        left: 20px;
-        bottom: auto;
-        .btn-squared{
-            float: left;
-            margin-top: 0;
-            a{
-                font-size: 1em;
-                line-height: 30px;
-            }
-        }
+        .logo,
+        .logo a{ width: 80px; }
     }
 
     .switch-project-holder{
-        width: 140px;
-        .label.label-small{
-            height: 28px;
-            span{
-                font-size: .875em;
-                line-height: 29px;
-            }
-        }
-        .btn.btn-squared{
-            width: 40px;
-            height: 40px;
-            a{ line-height: 37px; }
-        }
-    }
-
-    .numbers-holder{
-        width: 260px;
-        .item{
-            margin-right: 10px;
-            .number{ font-size: 3em; }
-            p{ font-size: .75em; }
-        }
-    }
-    
-    .bg-title-holder{
-        display: none;
+        margin: 20px auto 0;
     }
 
 }
@@ -817,9 +761,7 @@ body,
 @media only screen and @landscape{
 
     #page{ display: none; }
-    #landscape-holder{
-        display: block;
-    }
+    #landscape-holder{ display: block; }
 
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -439,7 +439,7 @@
                 }
                 & > .graphic-holder{
                     width: 360px;
-                    top: 50%;
+                    top: 40%;
                     left: 80px;
                     right: auto;
                     bottom: auto;
@@ -881,65 +881,90 @@
 
 }
 
-@media only screen and @mobileM{
+@media only screen and @mobileL{
 
-    .hero-holder{
+    .about-holder{
         .inner{
-            .upper-title{ font-size: 1em; }
-            h1{
-                font-size: 5.5em;
-                line-height: 90px;
-            }
-            p{ font-size: .875em; }
-        }
-        & > .corner{
-            width: 40px;
-            height: 40px;
-        }
-        .arrow-holder{
-            width: 14px;
-            height: 8px;
-            margin-left: -7px;
-            .arrow-down{
-                border-left: 7px solid transparent;
-                border-right: 7px solid transparent;
-                border-top: 10px solid @white;
+            .info-holder{
+                margin-bottom: 40px;
+                .info{
+                    width: 100%;
+                    .corner{
+                        &.corner-tl{
+                            top: 0;
+                        }
+                    }
+                    .label{
+                        margin: 0;
+                    }
+
+                    h2{
+                        padding: 40px 40px 20px;
+                    }
+                    p{
+                        padding: 0 40px 20px;
+                        &:last-child{ padding-bottom: 40px; }
+                    }
+                }  
             }
         }
     }
     
-    .about-holder{
-        .inner{
-            .info-holder{
-                margin-bottom: 0;
-                .info{
-                    .corner{ display: none; }
-                    h2, p{ padding: 0 20px; }
-                    h2{
-                        font-size: 1.5em;
-                        padding: 50px 20px 10px;
-                    }
-                    p:last-child{ padding-bottom: 40px; }
-                }
-                .numbers-holder{
-                    margin: 120px auto 0;
-                }
-            }
-        }
-    }
-
     .services-holder{
         .inner{
+            padding-bottom: 40px;
+            .desc-holder{
+                .upperline{
+                    margin: 40px 0 20px;
+                }
+            }
             .list-holder{
                 margin: 40px 0;
                 li{
-                    height: 60px;
-                    .num-holder{ display: none; }
+                    height: auto;
+                    background: @black;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    &:after{ display: none; }
+                    .num-holder{
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        margin: 20px auto 10px;
+                        span{
+                            font-size: .875em;
+                            line-height: 30px;
+                            opacity: 0;
+                            color: @white;
+                            transition: all .5s @easing .5s;
+                        }
+                        svg > polygon{
+                            fill: transparent;
+                            stroke-width: 1px;
+                            stroke: @gold;
+                            stroke-dasharray: 240px;
+                            stroke-dashoffset: 240px;
+                            transition: stroke-dashoffset .5s @easing 0s, fill .5s @easing .5s;
+                        }
+                    }
                     p{
-                        font-size: .875em;
-                        padding: 0;
-                        line-height: 60px;
-                        span{ padding: 0; }
+                        font-size: 1em;
+                        text-align: center;
+                        padding: 0 20px 20px;
+                        line-height: 20px;
+                        color: @white;
+                        span{
+                            padding: 0;
+                            color: @gold;
+                            &:before{ display: none; }
+                        }
+                    }
+                    &.active{
+                        .num-holder{   
+                            svg > polygon{
+                                fill: @gold;
+                            }
+                        }
                     }
                 }
             }
@@ -949,8 +974,9 @@
     .projects-holder{
         .inner{
             .item-holder{
-                margin-bottom: 80px;
+                margin: 40px 0 80px;
                 padding: 0;
+                &:last-child{ margin-bottom: 40px; }
                 .info-holder{
                     width: 100%;
                     .corner.corner-tl{
@@ -958,79 +984,58 @@
                     }
                     .label{
                         margin: 0;
-                        position: absolute;
                         top: 0;
-                        left: 0px;
+                        left: 0;
                         &.label-squared{
-                            width: 30px;
-                            height: 30px;
+                            position: absolute;
                             top: 0;
                             right: 0;
-                            left: auto;
-                            span{
-                                font-size: 1.25em;
-                                line-height: 30px;
-                                color: @black;
-                            }
-                            svg{ display: none; }
+                            margin: 0;
                         } 
                     }
-                    h2, p{ padding: 0 20px; }
-                    h2{
-                        font-size: 1.5em;
-                        padding: 50px 20px 10px;
-                    }
+                    h2, p{ padding: 0; }
+                    h2{ padding: 60px 0 20px; }
                     .action-holder{
-                        width: 100%;
                         margin-top: 40px;
-                        overflow: hidden;
                         .progress-holder{
-                            height: 40px;
-                            & > p{
-                                font-size: .875em;
-                                line-height: 20px;
-                            }
+                            height: 45px;
                         }
                     }
                 }
-                & > .graphic-holder{ display: none; }
-                &.reverse .info-holder{ margin-left: 0; } 
-                &:last-child{ margin-bottom: 40px; }
+                &.reverse{
+                    .info-holder{ margin-left: 0; }
+                }
             }
         }
     }
     
     .team-holder{
         .inner{
+            padding-bottom: 40px;
             .item-holder{
-                margin-bottom: 40px;
+                margin: 40px auto 80px;
                 .photo-holder{
-                    padding: 0 20px 0 40px;  
+                    width: 100%;
+                    padding: 0 0 0 80px;
                 }
                 .info-holder{
-                    margin-top: 0;
+                    width: 100%;
+                    float: none;
+                    position: relative;
+                    margin-top: 40px;
+                    overflow: hidden;
                     .corner{
-                        display: none;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
                     }
-                    & > h2{
-                        padding: 20px 40px 10px;
-                    }
+                    & > h2{ padding: 40px 40px 20px; }
                     & > p{ padding: 0 40px; }
-                    .numbers-holder{
-                        width: 100%;
-                        padding: 0 40px;
-                        box-sizing: border-box;
-                        margin-top: 80px;
-                        .item{
-                            width: 33.33333333333333%;
-                            margin-right: 0;
-                            padding-right: 10px;
-                            box-sizing: border-box;
-                            .number{
-                                width: 100%;
-                                font-size: 3.5em;
-                            }
-                        }
+                }
+                &.reverse{
+                    .photo-holder,
+                    .info-holder{
+                        float: none;
                     }
                 }
             }
@@ -1039,42 +1044,45 @@
 
     .contact-holder{
         .inner{
-            h2{
-                font-size: 1.5em;
-                padding: 20px 20px 10px;
+            .upperline{
+                width: 40px;
+                margin-top: 20px;
             }
+            h2{ padding: 20px 0 10px; }
             p{ padding: 0; }
             .buttons-holder{
-                width: 340px;
-                .btn{
-                    margin-right: 20px;
-                }
+                width: 380px;
+                .btn{ margin-right: 20px; }
             }
         }
     }
 
 }
 
-@media only screen and @mobileS{
+@media only screen and @mobileM{
 
     .hero-holder{
         .inner{
-            top: 55%;
-            .upper-title{
-                font-size: .875em;
-                margin-bottom: 10px;
-            }
-            h1{
-                font-size: 4.75em;
-                line-height: 80px;
-            }
-            p{ font-size: .75em; }
+            .upper-title{ font-size: 1em; }
+            h1{ line-height: 90px; }
+            p{ font-size: .875em; }
         }
         & > .corner{
-            display: none;
+            width: 40px;
+            height: 40px;
+            right: 40px;
+            bottom: 40px;
         }
         .arrow-holder{
-            bottom: 20px;
+            width: 12px;
+            height: 8px;
+            bottom: 40px;
+            margin-left: -6px;
+            .arrow-down{
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 8px solid @white;
+            }
         }
     }
     
@@ -1089,77 +1097,69 @@
                         top: auto;
                         right: auto;
                     }
-                    h2, p{ padding: 0 0 10px; }
                     h2{
-                        font-size: 1.5em;
+                        font-size: 1.75em;
                         padding: 20px 0 10px;
                     }
-                    p:last-child{ padding-bottom: 0; }
-                }
-                .numbers-holder{
-                    margin: 120px auto 0;
+                    p{
+                        padding: 0 0 10px;
+                        &:last-child{ padding-bottom: 20px; }
+                    }
+                }  
+            }
+        }
+    }
+
+    .services-holder{
+        .inner{
+            padding-bottom: 0;
+            .desc-holder{
+                .upperline{ margin: 0 0 20px; }
+            }
+            .list-holder{
+                li{
+                    p{ font-size: .875em; }
                 }
             }
         }
     }
     
-    .services-holder{
-        .inner{
-            .desc-holder{
-                .upperline{ width: 20px; }
-                p{ font-size: .875em; }
-            }
-            .list-holder{
-                margin: 40px 0;
-                li{
-                    height: auto;
-                    margin-bottom: 20px;
-                    overflow: hidden;
-                    &:after{ display: none; }
-                    .num-holder{
-                        display: block;
-                        position: relative;
-                        top: auto;
-                        left: auto;
-                        float: left;
-                    }
-                    p{
-                        font-size: .875em;
-                        line-height: 16px;
-                        padding: 0 20px 0 50px;
-                        span{
-                            padding: 0;
-                            color: @gold;
-                            &:before{ display: none; }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     .projects-holder{
         .inner{
             .item-holder{
+                margin: 40px 0;
                 padding: 0;
+                &:last-child{ margin-bottom: 0; }
                 .info-holder{
+                    .label{
+                        margin: 0;
+                        position: relative;
+                        &.label-squared{
+                            width: 30px;
+                            height: 30px;
+                            .icon{
+                                color: @black;
+                                font-size: 1.25em;
+                                line-height: 30px;
+                            }
+                            svg > polygon{ display: none; }
+                        } 
+                    }
                     h2, p{ padding: 0; }
                     h2{
-                        font-size: 1.5em;
-                        padding: 50px 0 10px;
+                        font-size: 1.75em;
+                        padding: 20px 0 10px;
                     }
                     .action-holder{
-                        width: 100%;
-                        height: auto;
                         margin-top: 20px;
-                        overflow: hidden;
                         .progress-holder{
                             width: 100%;
-                            height: 40px;
                             float: none;
-                            & > p{
-                                font-size: .875em;
-                                line-height: 20px;
+                            height: auto;
+                            .progress{
+                                height: 6px;
+                                border: 1px solid @black;
+                                .progress-bar{ height: 4px; }
                             }
                         }
                         .btn{ margin-top: 20px; }
@@ -1171,46 +1171,71 @@
 
     .team-holder{
         .inner{
+            padding-bottom: 0;
             .item-holder{
-                margin-bottom: 40px;
+                margin: 40px auto;
                 .photo-holder{
-                    padding: 0 0 0 20px;
+                    width: 100%;
+                    padding: 15px 0 0 20px;
+                    .label{
+                        top: 0;
+                    }
                 }
                 .info-holder{
-                    & > h2{
-                        padding: 20px 0 10px;
-                    }
+                    margin-top: 0;
+                    .corner{ display: none; }
+                    & > h2{ padding: 20px 0 10px; }
                     & > p{ padding: 0; }
-                    .numbers-holder{
-                        padding: 0;
-                        .item{
-                            .number{
-                                font-size: 3em;
-                            }
-                        }
-                    }
                 }
             }
         }
     }
+
+    .contact-holder{
+        .inner{
+            h2{
+                font-size: 1.75em;
+                padding: 20px 0 10px;
+            }
+            .buttons-holder{
+                width: 160px;
+                margin: 20px auto 40px;
+                .btn{
+                    float: none;
+                    margin: 0 0 10px 0;
+                    &:last-child{ margin: 0; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @mobileS{
+
+    .hero-holder{
+        .inner{
+            .upper-title{
+                font-size: .875em;
+                margin-bottom: 10px;
+            }
+            h1{ line-height: 80px; }
+            p{ font-size: .75em; }
+        }
+    }
+    
+    .about-holder{
+        .inner .info-holder .info h2{ font-size: 1.5em; }
+    }
+
+    .projects-holder{
+        .inner .item-holder .info-holder h2{ font-size: 1.5em; }
+    }
     
     .contact-holder{
         .inner{
-            .upperline{
-                width: 40px;
-            }
-            h2{
-                font-size: 1.5em;
-                padding: 20px 0 10px;
-            }
-            p{ padding: 0; }
-            .buttons-holder{
-                width: 160px;
-                margin: 10px auto 40px;
-                .btn{
-                    margin: 10px 0 0;
-                }
-            }
+            h2{ font-size: 1.5em; }
+            .buttons-holder{ width: 160px; }
         }
     }
 

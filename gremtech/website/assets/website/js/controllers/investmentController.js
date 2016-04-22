@@ -7,6 +7,8 @@ let loaderHolder = $("#loader-holder");
 let responseHolder = $("#response-holder");
 let token = Cookies.get("csrftoken");
 
+let isDone = true;
+
 class InvestmentController{
 
     constructor(){
@@ -18,8 +20,10 @@ class InvestmentController{
     _handleForm(e){
         e.preventDefault();
         
-        if(!form.valid()) return;
+        if(!form.valid() && !isDone) return;
         
+        isDone = false;
+
         loaderHolder.addClass("active");
         responseHolder.removeClass().empty();
 
@@ -57,6 +61,7 @@ class InvestmentController{
 
             window.setTimeout(function(){
                 responseHolder.removeClass().empty();
+                isDone = true;
             }, 5000);
         });
     }

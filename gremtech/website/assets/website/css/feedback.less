@@ -185,21 +185,22 @@
         .back-holder{
             margin: 40px 0 0 0;
             a{
-                padding: 0 20px;
+                padding: 0 40px;
                 line-height: 30px;
             }
         }
     }
     #langs-holder{
-        width: 110px;
+        width: 155px;
         margin: 40px 20px 0 0;
         .btn-squared{
-            margin: 0 0 0 10px;
-            &:last-child{ margin: 0 0 0 10px; }
-            a{ color: @black; }
+            width: 45px;
+            height: 45px;
+            margin: 0 10px 0 0;
+            &:last-child{ margin: 0; }
             &:hover,
             &.active{
-                a{ color: @gold; }
+                a{ color: @white; }
             }
         }
     }
@@ -209,6 +210,7 @@
         .inner{
             padding-top: 120px;
             .info-holder{
+                margin-top: 40px;
                 h1{
                     padding: 40px 40px 0;
                     font-size: 1.5em;
@@ -242,12 +244,29 @@
 
 }
 
-@media only screen and @mobileS{
+@media only screen and @mobileM{
+    
+    #langs-holder{
+        width: 110px;
+        .btn-squared{
+            width: 30px;
+            height: 30px;
+            margin: 0 10px 0 0;
+            &:last-child{ margin: 0; }
+            a{
+                color: @black;
+                line-height: 30px;
+            }
+            &:hover,
+            &.active{
+                a{ color: @gold; }
+            }
+        }
+    }
 
     .feedback-holder{
-        .bg-title-holder{ padding-top: 40px; }
         .inner{
-            padding-top: 90px;
+            padding-top: 60px;
             .info-holder{
                 .corner{ display: none; }
                 .label{

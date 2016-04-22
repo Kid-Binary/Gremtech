@@ -4,6 +4,8 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import RegexValidator
 
+from ipware.ip import get_ip
+
 from .services.mailer import MailerMixin
 from .models import Project
 
@@ -28,8 +30,7 @@ class InvestmentForm(MailerMixin, forms.Form):
     )
     email = forms.EmailField(max_length=254,)
     phone = forms.CharField(
-        required=False,
-        validators=[RegexValidator(regex='^.{19}$', code='invalid')]
+        required=False, max_length=50,
     )
     comment = forms.CharField(
         min_length=5, max_length=1000, required=False, widget=forms.Textarea,
@@ -39,6 +40,7 @@ class InvestmentForm(MailerMixin, forms.Form):
     )
 
     def __init__(self, *args, **kwargs):
+        self._request = kwargs.pop('request', None)
         super(InvestmentForm, self).__init__(*args, **kwargs)
 
         # Project
@@ -90,12 +92,8 @@ class InvestmentForm(MailerMixin, forms.Form):
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
             'placeholder': _('Укажите номер телефона'),
-            'data-rule-maxlength': 19,
+            'data-rule-maxlength': 50,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
-            'data-mask': '+380 (99) 999-99-99',
-        }
-        self.fields['phone'].error_messages = {
-            'invalid': _('Это не похоже на корректный номер телефона'),
         }
 
         # Comment
@@ -117,6 +115,10 @@ class InvestmentForm(MailerMixin, forms.Form):
         if self.cleaned_data['honeypot']:
             return False
 
+        ip = get_ip(self._request)
+        if ip is None:
+            return False
+
         now = datetime.datetime.now().strftime(datetime_format)
 
         subject = 'Предложение инвестиции, ' + now
@@ -127,6 +129,7 @@ class InvestmentForm(MailerMixin, forms.Form):
             'email': self.cleaned_data['email'],
             'phone': self.cleaned_data['phone'],
             'comment': self.cleaned_data['comment'],
+            'ip': ip
         }
 
         super(InvestmentForm, self).send_email(subject, template, context)
@@ -137,8 +140,7 @@ class FeedbackForm(MailerMixin, forms.Form):
     name = forms.CharField(min_length=2, max_length=250,)
     email = forms.EmailField(max_length=254,)
     phone = forms.CharField(
-        required=False,
-        validators=[RegexValidator(regex='^.{19}$', code='invalid')]
+        required=False, max_length=50,
     )
     message = forms.CharField(
         min_length=5, max_length=1000, widget=forms.Textarea,
@@ -148,6 +150,7 @@ class FeedbackForm(MailerMixin, forms.Form):
     )
 
     def __init__(self, *args, **kwargs):
+        self._request = kwargs.pop('request', None)
         super(FeedbackForm, self).__init__(*args, **kwargs)
 
         # Name
@@ -188,12 +191,8 @@ class FeedbackForm(MailerMixin, forms.Form):
         self.fields['phone'].label = _('Телефон')
         self.fields['phone'].widget.attrs = {
             'placeholder': _('Укажите номер телефона'),
-            'data-rule-maxlength': 19,
+            'data-rule-maxlength': 50,
             'data-msg-maxlength': _('Этот телефон слишком длинный'),
-            'data-mask': '+380 (99) 999-99-99',
-        }
-        self.fields['phone'].error_messages = {
-            'invalid': _('Это не похоже на корректный номер телефона'),
         }
 
         # Message
@@ -217,6 +216,10 @@ class FeedbackForm(MailerMixin, forms.Form):
         if self.cleaned_data['honeypot']:
             return False
 
+        ip = get_ip(self._request)
+        if ip is None:
+            return False
+
         now = datetime.datetime.now().strftime(datetime_format)
 
         subject = 'Сообщение обратной связи, ' + now
@@ -226,6 +229,7 @@ class FeedbackForm(MailerMixin, forms.Form):
             'email': self.cleaned_data['email'],
             'phone': self.cleaned_data['phone'],
             'message': self.cleaned_data['message'],
+            'ip': ip
         }
 
         super(FeedbackForm, self).send_email(subject, template, context)

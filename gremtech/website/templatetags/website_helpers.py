@@ -30,3 +30,8 @@ def get_url_with_kwargs(request):
     url_kwargs = request.resolver_match.kwargs
 
     return reverse(url_name, None, None, url_kwargs)
+
+
+@register.filter
+def sift_digits(value):
+    return ''.join(i for i in value if i.isdigit())
