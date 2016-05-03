@@ -35,3 +35,8 @@ def get_url_with_kwargs(request):
 @register.filter
 def sift_digits(value):
     return ''.join(i for i in value if i.isdigit())
+
+
+@register.filter
+def absolute_url(request):
+    return request.build_absolute_uri(reverse('website:index'))[:-1]

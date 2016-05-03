@@ -10,6 +10,12 @@
     {{ block.super }}
     <meta name="Description" content="{{ project.description_short }}">
     <meta name=“robots” content="{{ METADATA.robots }}">
+    {# Open Graph #}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% trans 'GremTech R&D Center' noop %} | {{ project.title }}">
+    <meta property="og:description" content="{{ project.description_short }}">
+    <meta property="og:image" content="{{ request|absolute_url }}{% static 'website/images/logo-fb.jpg' %}">
 {% endblock %}
 
 {% block stylesheets %}
