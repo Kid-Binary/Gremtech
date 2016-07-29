@@ -71,7 +71,7 @@ body,
     position: absolute;
     top: 80px;
     right: 80px;
-    z-index: 20;
+    z-index: 25;
     overflow: hidden;
     .btn-squared{
         margin-top: 10px;
@@ -261,7 +261,7 @@ body,
                 line-height: 45px;
                 font-size: .875em;
             }
-        }   
+        }
     }
     &:hover,
     &.active{
@@ -285,7 +285,7 @@ body,
         line-height: 45px;
         color: @white;
         text-align: center;
-        text-transform: uppercase;   
+        text-transform: uppercase;
     }
     svg > polygon{
         fill: fade(@gold, 40%);
@@ -535,9 +535,9 @@ body,
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media only screen and @notebook{
-    
+
     .inner{ padding: 212px 160px 0; }
-    
+
     .btn{
         width: 180px;
         height: 45px;
@@ -548,7 +548,7 @@ body,
             font-weight: 300;
         }
     }
-    
+
     .label{
         width: 240px;
         height: 35px;
@@ -572,16 +572,16 @@ body,
 }
 
 @media only screen and @tablet{
-    
+
     .inner{ padding: 120px 80px 0; }
 
     #header .logo{ margin: 40px 0 0 40px; }
-    
+
     #langs-holder{
         top: 40px;
         right: 40px;
     }
-    
+
     #social-holder{
         width: 45px;
         position: absolute;
@@ -595,12 +595,12 @@ body,
             font-size: 10em;
         }
     }
-    
+
     .corner{
         width: 80px;
         height: 80px;
     }
-    
+
     #footer{
         background: url("@{images}/bg-logos.png") no-repeat -50% -450px, url("@{images}/bg-logos.png") no-repeat 146% -100px @black;
         background-size: 400px auto, 400px auto;
@@ -618,7 +618,7 @@ body,
             font-size: 7.5em;
         }
     }
-    
+
     .numbers-holder{ display: none; }
 
     #footer{
@@ -656,7 +656,7 @@ body,
             }
         }
     }
-    
+
     #langs-holder{
         width: 110px;
         height: auto;
@@ -690,7 +690,7 @@ body,
             svg > polygon{ display: none; }
         }
     }
-    
+
     .switch-project-holder{
         width: 155px;
         margin: 40px auto 0;
@@ -715,7 +715,7 @@ body,
             }
         }
     }
-    
+
     .btn{
         width: 160px;
         height: 40px;
@@ -746,7 +746,7 @@ body,
 @media only screen and @mobileS{
 
     h1{ font-size: 5em; }
-    
+
     #header{
         .logo,
         .logo a{ width: 80px; }
