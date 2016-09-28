@@ -1,6 +1,7 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.abspath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../')
 )
@@ -27,7 +28,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'solid_i18n.middleware.SolidLocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'gremtech.urls'

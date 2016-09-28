@@ -33,8 +33,7 @@ def index(request):
         GetInTouch.objects.first(),
     ]
     content_blocks = {
-        block.get_template_block_name(): block
-        for block in content
+        block.get_template_block_name(): block for block in content
     }
 
     services = get_list_or_404(Service)
