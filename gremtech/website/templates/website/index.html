@@ -132,14 +132,14 @@
 
 
 					</ul>
-                    {% comment %}
+
 					<div class="btn">
 						<a href="{% url 'website:feedback' %}">{% trans 'заказать услугу' %}</a>
 						<svg viewBox="0 0 200 50">
 					        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
 					    </svg>
 					</div>
-                    {% endcomment %}
+
 				</div>
 			</section>
 			<section class="outer projects-holder">
@@ -194,7 +194,7 @@
 
 				</div>
 			</section>
-            {% comment %}
+
 			<section class="outer team-holder">
 				<div class="bg-title-holder scrollify" data-speed="50">
 					<span>{% trans 'Our team' noop %}</span>
@@ -244,7 +244,7 @@
 
 				</div>
 			</section>
-            {% endcomment %}
+
 			<section class="outer contact-holder">
 				<div class="bg-title-holder scrollify" data-speed="50">
 					<span>{% trans 'Get in touch' noop %}</span>
@@ -258,7 +258,7 @@
                     {% endwith %}
 
                     <div class="buttons-holder">
-                        {% comment %}
+
 						<div class="btn">
 							<a href="{% url 'website:feedback' %}">{% trans 'Написать нам' %}</a>
 							<svg viewBox="0 0 200 50">
@@ -271,17 +271,17 @@
 						        <polygon class="rect-large" points="0,15 15,0 200,0 200,35 185,50 0,50 "/>
 						    </svg>
 						</div>
-                        {% endcomment %}
+
 					</div>
 				</div>
 			</section>
 			<div id="footer">
                 <span class="upperline"></span>
-                {% comment %}
+
                 <a href="tel:+{{ contact.phone_first|sift_digits }}">{{ contact.phone_first }}</a>
 				<a href="mailto:{{ contact.email_first }}">{{ contact.email_first }}</a>
 				<a href="mailto:{{ contact.email_second }}">{{ contact.email_second }}</a>
-                {% endcomment %}
+
 
                 {% include 'website/components/footer.html' only %}
 
